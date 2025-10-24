@@ -454,10 +454,10 @@ namespace DevSolutions.Forms
         // ==========================================================
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-            FrmMenuAdmin menu = new FrmMenuAdmin();
-            menu.Show();
-            this.Hide();
+            // Solo cerramos este formulario y el menú principal (login/menu) queda visible
+            this.Close();
         }
+
 
         // ==========================================================
         // 🔹 Evento del ComboBox de productos (opcional)

@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using DevSolutions.Dal; // Importa la clase DBConnection
+using DevSolutions.Dal;
 
 namespace DevSolutions.Forms
 {
     public partial class FrmLogin : Form
     {
-        // 🔹 No es necesario crear instancia si DBConnection es estática
         public FrmLogin()
         {
             InitializeComponent();
@@ -30,7 +29,6 @@ namespace DevSolutions.Forms
                 using (SqlConnection conn = DBConnection.GetConnection())
                 {
                     conn.Open();
-
                     string query = @"
                         SELECT Usuario_Rol 
                         FROM SEG.Tb_Usuarios
@@ -47,19 +45,19 @@ namespace DevSolutions.Forms
                         if (rol != null)
                         {
                             string rolUsuario = rol.ToString();
-
                             MessageBox.Show($"✅ Bienvenido {usuario} ({rolUsuario})",
                                 "Acceso concedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            // Cargar formulario según el rol
+                            // 🔹 CAMBIO: Pasar la referencia de este formulario (this)
                             Form menuForm;
-
                             if (rolUsuario.Equals("Administrador", StringComparison.OrdinalIgnoreCase))
-                                menuForm = new FrmMenuAdmin();
+                                menuForm = new FrmMenuAdmin(this); // 🔹 Pasa "this"
                             else
-                                menuForm = new FrmMenuUsuario(true);
+                                menuForm = new FrmMenuUsuario(true, this); // 🔹 Pasa "this"
 
-                            menuForm.FormClosed += (s, args) => this.Show();
+                            // 🔹 OPCIONAL: Ya no necesitas este evento porque ahora los menús manejan el Show()
+                            // menuForm.FormClosed += (s, args) => this.Show();
+
                             menuForm.Show();
                             this.Hide();
                         }
@@ -89,6 +87,5 @@ namespace DevSolutions.Forms
             string resultado = DBConnection.TestConnectionWithDetails();
             MessageBox.Show(resultado, "Prueba de conexión", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
     }
 }

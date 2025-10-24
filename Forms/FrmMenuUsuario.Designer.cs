@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuUsuario));
             lblBienvenida = new Label();
             btnVerProductos = new Button();
             btnVerInventario = new Button();
@@ -28,37 +29,17 @@
             panelButtons.SuspendLayout();
             SuspendLayout();
             // 
-            // panelHeader
-            // 
-            panelHeader.BackColor = Color.FromArgb(52, 152, 219);
-            panelHeader.Controls.Add(lblBienvenida);
-            panelHeader.Dock = DockStyle.Top;
-            panelHeader.Location = new Point(0, 0);
-            panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(800, 100);
-            panelHeader.TabIndex = 5;
-            // 
             // lblBienvenida
             // 
-            lblBienvenida.AutoSize = true;
+            lblBienvenida.Dock = DockStyle.Fill;
             lblBienvenida.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             lblBienvenida.ForeColor = Color.White;
-            lblBienvenida.Location = new Point(250, 30);
+            lblBienvenida.Location = new Point(0, 0);
             lblBienvenida.Name = "lblBienvenida";
-            lblBienvenida.Size = new Size(280, 46);
+            lblBienvenida.Size = new Size(800, 100);
             lblBienvenida.TabIndex = 0;
             lblBienvenida.Text = "Panel Usuario";
-            // 
-            // panelButtons
-            // 
-            panelButtons.BackColor = Color.White;
-            panelButtons.Controls.Add(btnVerProductos);
-            panelButtons.Controls.Add(btnVerInventario);
-            panelButtons.Controls.Add(btnGenerarReporte);
-            panelButtons.Location = new Point(200, 150);
-            panelButtons.Name = "panelButtons";
-            panelButtons.Size = new Size(400, 280);
-            panelButtons.TabIndex = 6;
+            lblBienvenida.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnVerProductos
             // 
@@ -120,6 +101,27 @@
             btnCerrarSesion.UseVisualStyleBackColor = false;
             btnCerrarSesion.Click += btnCerrarSesion_Click;
             // 
+            // panelHeader
+            // 
+            panelHeader.BackColor = Color.FromArgb(52, 152, 219);
+            panelHeader.Controls.Add(lblBienvenida);
+            panelHeader.Dock = DockStyle.Top;
+            panelHeader.Location = new Point(0, 0);
+            panelHeader.Name = "panelHeader";
+            panelHeader.Size = new Size(800, 100);
+            panelHeader.TabIndex = 5;
+            // 
+            // panelButtons
+            // 
+            panelButtons.BackColor = Color.White;
+            panelButtons.Controls.Add(btnVerProductos);
+            panelButtons.Controls.Add(btnVerInventario);
+            panelButtons.Controls.Add(btnGenerarReporte);
+            panelButtons.Location = new Point(200, 150);
+            panelButtons.Name = "panelButtons";
+            panelButtons.Size = new Size(400, 280);
+            panelButtons.TabIndex = 6;
+            // 
             // FrmMenuUsuario
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -129,12 +131,12 @@
             Controls.Add(btnCerrarSesion);
             Controls.Add(panelButtons);
             Controls.Add(panelHeader);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmMenuUsuario";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DevSolutions - Panel Usuario";
             Load += FrmMenuUsuario_Load;
             panelHeader.ResumeLayout(false);
-            panelHeader.PerformLayout();
             panelButtons.ResumeLayout(false);
             ResumeLayout(false);
         }

@@ -5,9 +5,15 @@ namespace DevSolutions.Forms
 {
     public partial class FrmMenuAdmin : Form
     {
-        public FrmMenuAdmin()
+        private Form _loginForm; // 🔹 Referencia al formulario de login original
+
+        // ==========================================================
+        // 🔹 Constructor que recibe la instancia del login
+        // ==========================================================
+        public FrmMenuAdmin(Form loginForm = null)
         {
             InitializeComponent();
+            _loginForm = loginForm;
         }
 
         // ==========================================================
@@ -17,7 +23,6 @@ namespace DevSolutions.Forms
         {
             try
             {
-                // Evita abrir múltiples ventanas del mismo formulario
                 foreach (Form f in Application.OpenForms)
                 {
                     if (f is FrmProductos)
@@ -26,7 +31,6 @@ namespace DevSolutions.Forms
                         return;
                     }
                 }
-
                 FrmProductos frm = new FrmProductos();
                 frm.Show();
             }
@@ -52,7 +56,6 @@ namespace DevSolutions.Forms
                         return;
                     }
                 }
-
                 FrmInventarios frm = new FrmInventarios();
                 frm.Show();
             }
@@ -70,9 +73,7 @@ namespace DevSolutions.Forms
         {
             try
             {
-                // 🔹 Soltar foco antes de abrir el nuevo formulario
                 this.ActiveControl = null;
-
                 FrmReporte frm = new FrmReporte();
                 frm.ShowDialog();
             }
@@ -82,7 +83,6 @@ namespace DevSolutions.Forms
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
         // ==========================================================
         // 🔹 Botón: Cerrar Sesión
@@ -98,20 +98,25 @@ namespace DevSolutions.Forms
 
             if (result == DialogResult.Yes)
             {
-                // Vuelve al login
-                FrmLogin login = new FrmLogin();
-                login.Show();
-                this.Close();
+                // 🔹 Reutiliza el login original si existe
+                if (_loginForm != null && !_loginForm.IsDisposed)
+                {
+                    _loginForm.Show();
+                    this.Close();
+                }
+                else
+                {
+                    // Si no existe, crea uno nuevo
+                    FrmLogin login = new FrmLogin();
+                    login.Show();
+                    this.Close();
+                }
             }
         }
 
-        // ==========================================================
-        // 🔹 Evento Load (opcional)
-        // ==========================================================
         private void FrmMenuAdmin_Load(object sender, EventArgs e)
         {
-            // Aquí podrías cargar datos o estadísticas generales del sistema si se desea.
+            // Código opcional
         }
-
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReporte));
             panelHeader = new Panel();
             lblTitulo = new Label();
             panelFormulario = new Panel();
@@ -58,7 +59,7 @@
             lblTitulo.ForeColor = Color.White;
             lblTitulo.Location = new Point(30, 22);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(334, 41);
+            lblTitulo.Size = new Size(353, 41);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "Generación de Reportes";
             // 
@@ -80,7 +81,7 @@
             label2.ForeColor = Color.FromArgb(52, 73, 94);
             label2.Location = new Point(30, 25);
             label2.Name = "label2";
-            label2.Size = new Size(210, 28);
+            label2.Size = new Size(165, 28);
             label2.TabIndex = 1;
             label2.Text = "Tipo de Reporte";
             // 
@@ -144,6 +145,7 @@
             Controls.Add(panelBotones);
             Controls.Add(panelFormulario);
             Controls.Add(panelHeader);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
             Name = "FrmReporte";
             StartPosition = FormStartPosition.CenterScreen;

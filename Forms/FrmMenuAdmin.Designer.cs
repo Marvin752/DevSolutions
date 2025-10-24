@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuAdmin));
             label1 = new Label();
             btnProductos = new Button();
             btnInventario = new Button();
@@ -28,16 +29,6 @@
             panelButtons.SuspendLayout();
             SuspendLayout();
             // 
-            // panelHeader
-            // 
-            panelHeader.BackColor = Color.FromArgb(41, 128, 185);
-            panelHeader.Controls.Add(label1);
-            panelHeader.Dock = DockStyle.Top;
-            panelHeader.Location = new Point(0, 0);
-            panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(882, 100);
-            panelHeader.TabIndex = 5;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -45,20 +36,9 @@
             label1.ForeColor = Color.White;
             label1.Location = new Point(280, 30);
             label1.Name = "label1";
-            label1.Size = new Size(350, 46);
+            label1.Size = new Size(349, 46);
             label1.TabIndex = 0;
             label1.Text = "Panel Administrador";
-            // 
-            // panelButtons
-            // 
-            panelButtons.BackColor = Color.White;
-            panelButtons.Controls.Add(btnProductos);
-            panelButtons.Controls.Add(btnInventario);
-            panelButtons.Controls.Add(btnReporte);
-            panelButtons.Location = new Point(241, 150);
-            panelButtons.Name = "panelButtons";
-            panelButtons.Size = new Size(400, 300);
-            panelButtons.TabIndex = 6;
             // 
             // btnProductos
             // 
@@ -120,6 +100,27 @@
             btnCerrarSesion.UseVisualStyleBackColor = false;
             btnCerrarSesion.Click += btnCerrarSesion_Click;
             // 
+            // panelHeader
+            // 
+            panelHeader.BackColor = Color.FromArgb(41, 128, 185);
+            panelHeader.Controls.Add(label1);
+            panelHeader.Dock = DockStyle.Top;
+            panelHeader.Location = new Point(0, 0);
+            panelHeader.Name = "panelHeader";
+            panelHeader.Size = new Size(882, 100);
+            panelHeader.TabIndex = 5;
+            // 
+            // panelButtons
+            // 
+            panelButtons.BackColor = Color.White;
+            panelButtons.Controls.Add(btnProductos);
+            panelButtons.Controls.Add(btnInventario);
+            panelButtons.Controls.Add(btnReporte);
+            panelButtons.Location = new Point(241, 150);
+            panelButtons.Name = "panelButtons";
+            panelButtons.Size = new Size(400, 300);
+            panelButtons.TabIndex = 6;
+            // 
             // FrmMenuAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -129,6 +130,7 @@
             Controls.Add(btnCerrarSesion);
             Controls.Add(panelButtons);
             Controls.Add(panelHeader);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmMenuAdmin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DevSolutions - Panel Administrador";

@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             lblUsuario = new Label();
             txtUsuario = new TextBox();
             lblPassword = new Label();
@@ -27,32 +28,6 @@
             panelLogin.SuspendLayout();
             SuspendLayout();
             // 
-            // panelLogin
-            // 
-            panelLogin.BackColor = Color.White;
-            panelLogin.BorderStyle = BorderStyle.FixedSingle;
-            panelLogin.Controls.Add(lblTitulo);
-            panelLogin.Controls.Add(lblUsuario);
-            panelLogin.Controls.Add(txtUsuario);
-            panelLogin.Controls.Add(lblPassword);
-            panelLogin.Controls.Add(txtPassword);
-            panelLogin.Controls.Add(btnLogin);
-            panelLogin.Location = new Point(380, 150);
-            panelLogin.Name = "panelLogin";
-            panelLogin.Size = new Size(460, 400);
-            panelLogin.TabIndex = 5;
-            // 
-            // lblTitulo
-            // 
-            lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
-            lblTitulo.ForeColor = Color.FromArgb(41, 128, 185);
-            lblTitulo.Location = new Point(120, 40);
-            lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(220, 45);
-            lblTitulo.TabIndex = 5;
-            lblTitulo.Text = "Iniciar Sesión";
-            // 
             // lblUsuario
             // 
             lblUsuario.AutoSize = true;
@@ -60,7 +35,7 @@
             lblUsuario.ForeColor = Color.FromArgb(52, 73, 94);
             lblUsuario.Location = new Point(70, 130);
             lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(71, 25);
+            lblUsuario.Size = new Size(77, 25);
             lblUsuario.TabIndex = 0;
             lblUsuario.Text = "Usuario";
             // 
@@ -79,7 +54,7 @@
             lblPassword.ForeColor = Color.FromArgb(52, 73, 94);
             lblPassword.Location = new Point(70, 210);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(101, 25);
+            lblPassword.Size = new Size(108, 25);
             lblPassword.TabIndex = 2;
             lblPassword.Text = "Contraseña";
             // 
@@ -107,13 +82,41 @@
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += BtnLogin_Click;
             // 
+            // lblTitulo
+            // 
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
+            lblTitulo.ForeColor = Color.FromArgb(41, 128, 185);
+            lblTitulo.Location = new Point(120, 40);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(271, 54);
+            lblTitulo.TabIndex = 5;
+            lblTitulo.Text = "Iniciar Sesión";
+            // 
+            // panelLogin
+            // 
+            panelLogin.BackColor = Color.White;
+            panelLogin.BorderStyle = BorderStyle.FixedSingle;
+            panelLogin.Controls.Add(lblTitulo);
+            panelLogin.Controls.Add(lblUsuario);
+            panelLogin.Controls.Add(txtUsuario);
+            panelLogin.Controls.Add(lblPassword);
+            panelLogin.Controls.Add(txtPassword);
+            panelLogin.Controls.Add(btnLogin);
+            panelLogin.Location = new Point(234, 147);
+            panelLogin.Name = "panelLogin";
+            panelLogin.Size = new Size(460, 400);
+            panelLogin.TabIndex = 5;
+            // 
             // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(236, 240, 241);
-            ClientSize = new Size(1219, 706);
+            BackColor = SystemColors.GradientActiveCaption;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(944, 706);
             Controls.Add(panelLogin);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DevSolutions - Login";

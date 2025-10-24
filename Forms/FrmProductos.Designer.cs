@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProductos));
             txtNombre = new TextBox();
             txtDescripcion = new TextBox();
             txtSKU = new TextBox();
@@ -448,6 +449,7 @@
             Controls.Add(panelImagen);
             Controls.Add(panelFormulario);
             Controls.Add(panelHeader);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmProductos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DevSolutions - Gestión de Productos";

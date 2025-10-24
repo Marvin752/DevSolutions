@@ -6,6 +6,7 @@ namespace DevSolutions.Forms
     public partial class FrmMenuUsuario : Form
     {
         private readonly bool soloLectura;
+        private Form _loginForm; // 🔹 Referencia al formulario de login original
 
         // ==========================================================
         // 🔹 Constructor sin parámetros
@@ -16,11 +17,12 @@ namespace DevSolutions.Forms
         }
 
         // ==========================================================
-        // 🔹 Constructor que recibe si es modo solo lectura (desde login)
+        // 🔹 Constructor que recibe modo lectura y el login
         // ==========================================================
-        public FrmMenuUsuario(bool soloLectura) : this()
+        public FrmMenuUsuario(bool soloLectura, Form loginForm = null) : this()
         {
             this.soloLectura = soloLectura;
+            _loginForm = loginForm;
         }
 
         // ==========================================================
@@ -44,7 +46,6 @@ namespace DevSolutions.Forms
         {
             try
             {
-                // Evita abrir varias veces el mismo formulario
                 foreach (Form f in Application.OpenForms)
                 {
                     if (f is FrmProductos)
@@ -54,7 +55,7 @@ namespace DevSolutions.Forms
                     }
                 }
 
-                FrmProductos frm = new FrmProductos(true); // 🔹 Modo solo lectura
+                FrmProductos frm = new FrmProductos(true);
                 frm.Show();
             }
             catch (Exception ex)
@@ -98,7 +99,7 @@ namespace DevSolutions.Forms
             try
             {
                 FrmReporte frm = new FrmReporte();
-                frm.ShowDialog(); // Modal
+                frm.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -121,9 +122,19 @@ namespace DevSolutions.Forms
 
             if (result == DialogResult.Yes)
             {
-                FrmLogin login = new FrmLogin();
-                login.Show();
-                this.Close();
+                // 🔹 Reutiliza el login original si existe
+                if (_loginForm != null && !_loginForm.IsDisposed)
+                {
+                    _loginForm.Show();
+                    this.Close();
+                }
+                else
+                {
+                    // Si no existe, crea uno nuevo
+                    FrmLogin login = new FrmLogin();
+                    login.Show();
+                    this.Close();
+                }
             }
         }
 
