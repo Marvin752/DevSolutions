@@ -28,166 +28,333 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.btnRegresar = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.txtInventarioId = new System.Windows.Forms.TextBox();
-            this.cmbProducto = new System.Windows.Forms.ComboBox();
-            this.txtCantidad = new System.Windows.Forms.TextBox();
-            this.txtDescuento = new System.Windows.Forms.TextBox();
-            this.txtPrecioVenta = new System.Windows.Forms.TextBox();
-            this.dtpFechaActualizacion = new System.Windows.Forms.DateTimePicker();
-            this.txtEstanteriaId = new System.Windows.Forms.TextBox();
-            this.dgvInventarios = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInventarios)).BeginInit();
-         
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            btnAgregar = new Button();
+            btnLimpiar = new Button();
+            btnRegresar = new Button();
+            btnActualizar = new Button();
+            cmbProducto = new ComboBox();
+            txtCantidad = new TextBox();
+            txtPrecioVenta = new TextBox();
+            dgvInventarios = new DataGridView();
+            label1 = new Label();
+            label2 = new Label();
+            textBoxDescuento = new TextBox();
+            Cantidad = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            comboBoxEstanterias = new ComboBox();
+            txtInventarioId = new TextBox();
+            panelHeader = new Panel();
+            lblTitulo = new Label();
+            panelFormulario = new Panel();
+            panelBotones = new Panel();
+            ((System.ComponentModel.ISupportInitialize)dgvInventarios).BeginInit();
+            panelHeader.SuspendLayout();
+            panelFormulario.SuspendLayout();
+            panelBotones.SuspendLayout();
+            SuspendLayout();
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(888, 117);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(135, 38);
-            this.btnAgregar.TabIndex = 0;
-            this.btnAgregar.Text = "agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            btnAgregar.BackColor = Color.FromArgb(46, 204, 113);
+            btnAgregar.FlatAppearance.BorderSize = 0;
+            btnAgregar.FlatStyle = FlatStyle.Flat;
+            btnAgregar.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnAgregar.ForeColor = Color.White;
+            btnAgregar.Location = new Point(25, 15);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(145, 50);
+            btnAgregar.TabIndex = 6;
+            btnAgregar.Text = "AGREGAR";
+            btnAgregar.UseVisualStyleBackColor = false;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(888, 243);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(135, 45);
-            this.btnLimpiar.TabIndex = 1;
-            this.btnLimpiar.Text = "limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.BackColor = Color.FromArgb(243, 156, 18);
+            btnLimpiar.FlatAppearance.BorderSize = 0;
+            btnLimpiar.FlatStyle = FlatStyle.Flat;
+            btnLimpiar.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnLimpiar.ForeColor = Color.White;
+            btnLimpiar.Location = new Point(25, 80);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(145, 50);
+            btnLimpiar.TabIndex = 8;
+            btnLimpiar.Text = "LIMPIAR";
+            btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // btnRegresar
             // 
-            this.btnRegresar.Location = new System.Drawing.Point(875, 322);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(135, 49);
-            this.btnRegresar.TabIndex = 2;
-            this.btnRegresar.Text = "regresar";
-            this.btnRegresar.UseVisualStyleBackColor = true;
-            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
+            btnRegresar.BackColor = Color.FromArgb(231, 76, 60);
+            btnRegresar.FlatAppearance.BorderSize = 0;
+            btnRegresar.FlatStyle = FlatStyle.Flat;
+            btnRegresar.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnRegresar.ForeColor = Color.White;
+            btnRegresar.Location = new Point(180, 80);
+            btnRegresar.Name = "btnRegresar";
+            btnRegresar.Size = new Size(145, 50);
+            btnRegresar.TabIndex = 9;
+            btnRegresar.Text = "REGRESAR";
+            btnRegresar.UseVisualStyleBackColor = false;
+            btnRegresar.Click += btnRegresar_Click;
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(888, 171);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(135, 48);
-            this.btnActualizar.TabIndex = 3;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
-            // txtInventarioId
-            // 
-            this.txtInventarioId.Location = new System.Drawing.Point(278, 77);
-            this.txtInventarioId.Name = "txtInventarioId";
-            this.txtInventarioId.Size = new System.Drawing.Size(186, 22);
-            this.txtInventarioId.TabIndex = 4;
-            this.txtInventarioId.Text = "ID (solo lectura)";
+            btnActualizar.BackColor = Color.FromArgb(52, 152, 219);
+            btnActualizar.FlatAppearance.BorderSize = 0;
+            btnActualizar.FlatStyle = FlatStyle.Flat;
+            btnActualizar.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnActualizar.ForeColor = Color.White;
+            btnActualizar.Location = new Point(180, 15);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(145, 50);
+            btnActualizar.TabIndex = 7;
+            btnActualizar.Text = "ACTUALIZAR";
+            btnActualizar.UseVisualStyleBackColor = false;
+            btnActualizar.Click += btnActualizar_Click;
             // 
             // cmbProducto
             // 
-            this.cmbProducto.FormattingEnabled = true;
-            this.cmbProducto.Location = new System.Drawing.Point(278, 125);
-            this.cmbProducto.Name = "cmbProducto";
-            this.cmbProducto.Size = new System.Drawing.Size(186, 24);
-            this.cmbProducto.TabIndex = 5;
-            this.cmbProducto.Text = "Producto";
+            cmbProducto.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbProducto.Font = new Font("Segoe UI", 10F);
+            cmbProducto.FormattingEnabled = true;
+            cmbProducto.Location = new Point(30, 52);
+            cmbProducto.Name = "cmbProducto";
+            cmbProducto.Size = new Size(330, 31);
+            cmbProducto.TabIndex = 0;
+            cmbProducto.SelectedIndexChanged += cmbProducto_SelectedIndexChanged;
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(278, 184);
-            this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(151, 22);
-            this.txtCantidad.TabIndex = 6;
-            this.txtCantidad.Text = "Cantidad";
-            // 
-            // txtDescuento
-            // 
-            this.txtDescuento.Location = new System.Drawing.Point(278, 283);
-            this.txtDescuento.Name = "txtDescuento";
-            this.txtDescuento.Size = new System.Drawing.Size(151, 22);
-            this.txtDescuento.TabIndex = 7;
-            this.txtDescuento.Text = "Descuento";
+            txtCantidad.Font = new Font("Segoe UI", 10F);
+            txtCantidad.Location = new Point(210, 127);
+            txtCantidad.Name = "txtCantidad";
+            txtCantidad.Size = new Size(150, 30);
+            txtCantidad.TabIndex = 2;
             // 
             // txtPrecioVenta
             // 
-            this.txtPrecioVenta.Location = new System.Drawing.Point(278, 234);
-            this.txtPrecioVenta.Name = "txtPrecioVenta";
-            this.txtPrecioVenta.Size = new System.Drawing.Size(151, 22);
-            this.txtPrecioVenta.TabIndex = 8;
-            this.txtPrecioVenta.Text = "Precio de venta";
-            // 
-            // dtpFechaActualizacion
-            // 
-            this.dtpFechaActualizacion.Location = new System.Drawing.Point(278, 322);
-            this.dtpFechaActualizacion.Name = "dtpFechaActualizacion";
-            this.dtpFechaActualizacion.Size = new System.Drawing.Size(280, 22);
-            this.dtpFechaActualizacion.TabIndex = 9;
-            // 
-            // txtEstanteriaId
-            // 
-            this.txtEstanteriaId.Location = new System.Drawing.Point(278, 374);
-            this.txtEstanteriaId.Name = "txtEstanteriaId";
-            this.txtEstanteriaId.Size = new System.Drawing.Size(105, 22);
-            this.txtEstanteriaId.TabIndex = 10;
-            this.txtEstanteriaId.Text = "Estantería Id";
+            txtPrecioVenta.Font = new Font("Segoe UI", 10F);
+            txtPrecioVenta.Location = new Point(390, 52);
+            txtPrecioVenta.Name = "txtPrecioVenta";
+            txtPrecioVenta.Size = new Size(180, 30);
+            txtPrecioVenta.TabIndex = 3;
             // 
             // dgvInventarios
             // 
-            this.dgvInventarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInventarios.Location = new System.Drawing.Point(104, 446);
-            this.dgvInventarios.Name = "dgvInventarios";
-            this.dgvInventarios.RowHeadersWidth = 51;
-            this.dgvInventarios.RowTemplate.Height = 24;
-            this.dgvInventarios.Size = new System.Drawing.Size(1061, 180);
-            this.dgvInventarios.TabIndex = 11;
-            this.dgvInventarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventarios_CellContentClick);
+            dgvInventarios.AllowUserToAddRows = false;
+            dgvInventarios.AllowUserToDeleteRows = false;
+            dgvInventarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvInventarios.BackgroundColor = Color.White;
+            dgvInventarios.BorderStyle = BorderStyle.None;
+            dgvInventarios.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(52, 73, 94);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(52, 73, 94);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvInventarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvInventarios.ColumnHeadersHeight = 40;
+            dgvInventarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvInventarios.EnableHeadersVisualStyles = false;
+            dgvInventarios.GridColor = Color.FromArgb(189, 195, 199);
+            dgvInventarios.Location = new Point(30, 300);
+            dgvInventarios.Name = "dgvInventarios";
+            dgvInventarios.ReadOnly = true;
+            dgvInventarios.RowHeadersVisible = false;
+            dgvInventarios.RowHeadersWidth = 51;
+            dgvInventarios.RowTemplate.Height = 35;
+            dgvInventarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvInventarios.Size = new Size(1170, 500);
+            dgvInventarios.TabIndex = 10;
+            dgvInventarios.CellContentClick += dgvInventarios_CellContentClick;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 10F);
+            label1.ForeColor = Color.FromArgb(52, 73, 94);
+            label1.Location = new Point(30, 25);
+            label1.Name = "label1";
+            label1.Size = new Size(80, 23);
+            label1.TabIndex = 12;
+            label1.Text = "Producto";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 10F);
+            label2.ForeColor = Color.FromArgb(52, 73, 94);
+            label2.Location = new Point(30, 100);
+            label2.Name = "label2";
+            label2.Size = new Size(91, 23);
+            label2.TabIndex = 13;
+            label2.Text = "Descuento";
+            // 
+            // textBoxDescuento
+            // 
+            textBoxDescuento.Font = new Font("Segoe UI", 10F);
+            textBoxDescuento.Location = new Point(30, 127);
+            textBoxDescuento.Name = "textBoxDescuento";
+            textBoxDescuento.Size = new Size(150, 30);
+            textBoxDescuento.TabIndex = 1;
+            textBoxDescuento.Text = "0";
+            // 
+            // Cantidad
+            // 
+            Cantidad.AutoSize = true;
+            Cantidad.Font = new Font("Segoe UI", 10F);
+            Cantidad.ForeColor = Color.FromArgb(52, 73, 94);
+            Cantidad.Location = new Point(210, 100);
+            Cantidad.Name = "Cantidad";
+            Cantidad.Size = new Size(79, 23);
+            Cantidad.TabIndex = 15;
+            Cantidad.Text = "Cantidad";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 10F);
+            label3.ForeColor = Color.FromArgb(52, 73, 94);
+            label3.Location = new Point(390, 25);
+            label3.Name = "label3";
+            label3.Size = new Size(130, 23);
+            label3.TabIndex = 16;
+            label3.Text = "Precio de Venta";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 10F);
+            label4.ForeColor = Color.FromArgb(52, 73, 94);
+            label4.Location = new Point(390, 100);
+            label4.Name = "label4";
+            label4.Size = new Size(85, 23);
+            label4.TabIndex = 17;
+            label4.Text = "Estantería";
+            // 
+            // comboBoxEstanterias
+            // 
+            comboBoxEstanterias.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxEstanterias.Font = new Font("Segoe UI", 10F);
+            comboBoxEstanterias.FormattingEnabled = true;
+            comboBoxEstanterias.Location = new Point(390, 127);
+            comboBoxEstanterias.Name = "comboBoxEstanterias";
+            comboBoxEstanterias.Size = new Size(180, 31);
+            comboBoxEstanterias.TabIndex = 4;
+            // 
+            // txtInventarioId
+            // 
+            txtInventarioId.Location = new Point(1100, 50);
+            txtInventarioId.Name = "txtInventarioId";
+            txtInventarioId.ReadOnly = true;
+            txtInventarioId.Size = new Size(100, 27);
+            txtInventarioId.TabIndex = 19;
+            txtInventarioId.Visible = false;
+            // 
+            // panelHeader
+            // 
+            panelHeader.BackColor = Color.FromArgb(41, 128, 185);
+            panelHeader.Controls.Add(txtInventarioId);
+            panelHeader.Controls.Add(lblTitulo);
+            panelHeader.Dock = DockStyle.Top;
+            panelHeader.Location = new Point(0, 0);
+            panelHeader.Name = "panelHeader";
+            panelHeader.Size = new Size(1228, 80);
+            panelHeader.TabIndex = 20;
+            // 
+            // lblTitulo
+            // 
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
+            lblTitulo.ForeColor = Color.White;
+            lblTitulo.Location = new Point(30, 22);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(334, 41);
+            lblTitulo.TabIndex = 0;
+            lblTitulo.Text = "Gestión de Inventarios";
+            // 
+            // panelFormulario
+            // 
+            panelFormulario.BackColor = Color.White;
+            panelFormulario.BorderStyle = BorderStyle.FixedSingle;
+            panelFormulario.Controls.Add(label1);
+            panelFormulario.Controls.Add(cmbProducto);
+            panelFormulario.Controls.Add(label2);
+            panelFormulario.Controls.Add(textBoxDescuento);
+            panelFormulario.Controls.Add(Cantidad);
+            panelFormulario.Controls.Add(txtCantidad);
+            panelFormulario.Controls.Add(label3);
+            panelFormulario.Controls.Add(txtPrecioVenta);
+            panelFormulario.Controls.Add(label4);
+            panelFormulario.Controls.Add(comboBoxEstanterias);
+            panelFormulario.Location = new Point(30, 100);
+            panelFormulario.Name = "panelFormulario";
+            panelFormulario.Size = new Size(800, 180);
+            panelFormulario.TabIndex = 21;
+            // 
+            // panelBotones
+            // 
+            panelBotones.BackColor = Color.White;
+            panelBotones.BorderStyle = BorderStyle.FixedSingle;
+            panelBotones.Controls.Add(btnAgregar);
+            panelBotones.Controls.Add(btnActualizar);
+            panelBotones.Controls.Add(btnLimpiar);
+            panelBotones.Controls.Add(btnRegresar);
+            panelBotones.Location = new Point(850, 100);
+            panelBotones.Name = "panelBotones";
+            panelBotones.Size = new Size(350, 180);
+            panelBotones.TabIndex = 22;
             // 
             // FrmInventarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1228, 657);
-            this.Controls.Add(this.dgvInventarios);
-            this.Controls.Add(this.txtEstanteriaId);
-            this.Controls.Add(this.dtpFechaActualizacion);
-            this.Controls.Add(this.txtPrecioVenta);
-            this.Controls.Add(this.txtDescuento);
-            this.Controls.Add(this.txtCantidad);
-            this.Controls.Add(this.cmbProducto);
-            this.Controls.Add(this.txtInventarioId);
-            this.Controls.Add(this.btnActualizar);
-            this.Controls.Add(this.btnRegresar);
-            this.Controls.Add(this.btnLimpiar);
-            this.Controls.Add(this.btnAgregar);
-            this.Name = "FrmInventarios";
-            this.Text = "FrmInventarios";
-            this.Load += new System.EventHandler(this.FrmInventarios_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInventarios)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(236, 240, 241);
+            ClientSize = new Size(1228, 821);
+            Controls.Add(panelBotones);
+            Controls.Add(panelFormulario);
+            Controls.Add(panelHeader);
+            Controls.Add(dgvInventarios);
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "FrmInventarios";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "DevSolutions - Gestión de Inventarios";
+            Load += FrmInventarios_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvInventarios).EndInit();
+            panelHeader.ResumeLayout(false);
+            panelHeader.PerformLayout();
+            panelFormulario.ResumeLayout(false);
+            panelFormulario.PerformLayout();
+            panelBotones.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.Button btnRegresar;
-        private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.TextBox txtInventarioId;
-        private System.Windows.Forms.ComboBox cmbProducto;
-        private System.Windows.Forms.TextBox txtCantidad;
-        private System.Windows.Forms.TextBox txtDescuento;
-        private System.Windows.Forms.TextBox txtPrecioVenta;
-        private System.Windows.Forms.DateTimePicker dtpFechaActualizacion;
-        private System.Windows.Forms.TextBox txtEstanteriaId;
-        private System.Windows.Forms.DataGridView dgvInventarios;
+        private Button btnAgregar;
+        private Button btnLimpiar;
+        private Button btnRegresar;
+        private Button btnActualizar;
+        private ComboBox cmbProducto;
+        private TextBox txtCantidad;
+        private TextBox txtPrecioVenta;
+        private DataGridView dgvInventarios;
+        private Label label1;
+        private Label label2;
+        private TextBox textBoxDescuento;
+        private Label Cantidad;
+        private Label label3;
+        private Label label4;
+        private ComboBox comboBoxEstanterias;
+        private TextBox txtInventarioId;
+        private Panel panelHeader;
+        private Label lblTitulo;
+        private Panel panelFormulario;
+        private Panel panelBotones;
     }
 }

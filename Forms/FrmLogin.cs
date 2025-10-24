@@ -89,5 +89,6 @@ namespace DevSolutions.Forms
             string resultado = DBConnection.TestConnectionWithDetails();
             MessageBox.Show(resultado, "Prueba de conexión", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
     }
 }

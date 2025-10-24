@@ -2,15 +2,8 @@
 {
     partial class FrmMenuUsuario
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,91 +15,138 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            this.lblBienvenida = new System.Windows.Forms.Label();
-            this.btnVerProductos = new System.Windows.Forms.Button();
-            this.btnVerInventario = new System.Windows.Forms.Button();
-            this.btnGenerarReporte = new System.Windows.Forms.Button();
-            this.btnCerrarSesion = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            lblBienvenida = new Label();
+            btnVerProductos = new Button();
+            btnVerInventario = new Button();
+            btnGenerarReporte = new Button();
+            btnCerrarSesion = new Button();
+            panelHeader = new Panel();
+            panelButtons = new Panel();
+            panelHeader.SuspendLayout();
+            panelButtons.SuspendLayout();
+            SuspendLayout();
+            // 
+            // panelHeader
+            // 
+            panelHeader.BackColor = Color.FromArgb(52, 152, 219);
+            panelHeader.Controls.Add(lblBienvenida);
+            panelHeader.Dock = DockStyle.Top;
+            panelHeader.Location = new Point(0, 0);
+            panelHeader.Name = "panelHeader";
+            panelHeader.Size = new Size(800, 100);
+            panelHeader.TabIndex = 5;
             // 
             // lblBienvenida
             // 
-            this.lblBienvenida.AutoSize = true;
-            this.lblBienvenida.Location = new System.Drawing.Point(298, 41);
-            this.lblBienvenida.Name = "lblBienvenida";
-            this.lblBienvenida.Size = new System.Drawing.Size(125, 16);
-            this.lblBienvenida.TabIndex = 0;
-            this.lblBienvenida.Text = "Bienvenido Usuario";
+            lblBienvenida.AutoSize = true;
+            lblBienvenida.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            lblBienvenida.ForeColor = Color.White;
+            lblBienvenida.Location = new Point(250, 30);
+            lblBienvenida.Name = "lblBienvenida";
+            lblBienvenida.Size = new Size(280, 46);
+            lblBienvenida.TabIndex = 0;
+            lblBienvenida.Text = "Panel Usuario";
+            // 
+            // panelButtons
+            // 
+            panelButtons.BackColor = Color.White;
+            panelButtons.Controls.Add(btnVerProductos);
+            panelButtons.Controls.Add(btnVerInventario);
+            panelButtons.Controls.Add(btnGenerarReporte);
+            panelButtons.Location = new Point(200, 150);
+            panelButtons.Name = "panelButtons";
+            panelButtons.Size = new Size(400, 280);
+            panelButtons.TabIndex = 6;
             // 
             // btnVerProductos
             // 
-            this.btnVerProductos.Location = new System.Drawing.Point(296, 107);
-            this.btnVerProductos.Name = "btnVerProductos";
-            this.btnVerProductos.Size = new System.Drawing.Size(127, 33);
-            this.btnVerProductos.TabIndex = 1;
-            this.btnVerProductos.Text = "Ver productos";
-            this.btnVerProductos.Click += new System.EventHandler(this.btnVerProductos_Click);
+            btnVerProductos.BackColor = Color.FromArgb(52, 152, 219);
+            btnVerProductos.FlatAppearance.BorderSize = 0;
+            btnVerProductos.FlatStyle = FlatStyle.Flat;
+            btnVerProductos.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnVerProductos.ForeColor = Color.White;
+            btnVerProductos.Location = new Point(50, 30);
+            btnVerProductos.Name = "btnVerProductos";
+            btnVerProductos.Size = new Size(300, 60);
+            btnVerProductos.TabIndex = 1;
+            btnVerProductos.Text = "VER PRODUCTOS";
+            btnVerProductos.UseVisualStyleBackColor = false;
+            btnVerProductos.Click += btnVerProductos_Click;
             // 
             // btnVerInventario
             // 
-            this.btnVerInventario.Location = new System.Drawing.Point(296, 177);
-            this.btnVerInventario.Name = "btnVerInventario";
-            this.btnVerInventario.Size = new System.Drawing.Size(127, 30);
-            this.btnVerInventario.TabIndex = 2;
-            this.btnVerInventario.Text = "Ver inventario";
-            this.btnVerInventario.UseVisualStyleBackColor = true;
-            this.btnVerInventario.Click += new System.EventHandler(this.btnVerInventario_Click);
+            btnVerInventario.BackColor = Color.FromArgb(46, 204, 113);
+            btnVerInventario.FlatAppearance.BorderSize = 0;
+            btnVerInventario.FlatStyle = FlatStyle.Flat;
+            btnVerInventario.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnVerInventario.ForeColor = Color.White;
+            btnVerInventario.Location = new Point(50, 110);
+            btnVerInventario.Name = "btnVerInventario";
+            btnVerInventario.Size = new Size(300, 60);
+            btnVerInventario.TabIndex = 2;
+            btnVerInventario.Text = "VER INVENTARIO";
+            btnVerInventario.UseVisualStyleBackColor = false;
+            btnVerInventario.Click += btnVerInventario_Click;
             // 
             // btnGenerarReporte
             // 
-            this.btnGenerarReporte.Location = new System.Drawing.Point(623, 310);
-            this.btnGenerarReporte.Name = "btnGenerarReporte";
-            this.btnGenerarReporte.Size = new System.Drawing.Size(132, 97);
-            this.btnGenerarReporte.TabIndex = 3;
-            this.btnGenerarReporte.Text = "Generar Reporte PDF";
-            this.btnGenerarReporte.UseVisualStyleBackColor = true;
-            this.btnGenerarReporte.Click += new System.EventHandler(this.btnGenerarReporte_Click);
+            btnGenerarReporte.BackColor = Color.FromArgb(155, 89, 182);
+            btnGenerarReporte.FlatAppearance.BorderSize = 0;
+            btnGenerarReporte.FlatStyle = FlatStyle.Flat;
+            btnGenerarReporte.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnGenerarReporte.ForeColor = Color.White;
+            btnGenerarReporte.Location = new Point(50, 190);
+            btnGenerarReporte.Name = "btnGenerarReporte";
+            btnGenerarReporte.Size = new Size(300, 60);
+            btnGenerarReporte.TabIndex = 3;
+            btnGenerarReporte.Text = "GENERAR REPORTE PDF";
+            btnGenerarReporte.UseVisualStyleBackColor = false;
+            btnGenerarReporte.Click += btnGenerarReporte_Click;
             // 
             // btnCerrarSesion
             // 
-            this.btnCerrarSesion.Location = new System.Drawing.Point(12, 384);
-            this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(135, 23);
-            this.btnCerrarSesion.TabIndex = 4;
-            this.btnCerrarSesion.Text = "Cerrar sesion";
-            this.btnCerrarSesion.UseVisualStyleBackColor = true;
-            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
+            btnCerrarSesion.BackColor = Color.FromArgb(231, 76, 60);
+            btnCerrarSesion.FlatAppearance.BorderSize = 0;
+            btnCerrarSesion.FlatStyle = FlatStyle.Flat;
+            btnCerrarSesion.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnCerrarSesion.ForeColor = Color.White;
+            btnCerrarSesion.Location = new Point(30, 490);
+            btnCerrarSesion.Name = "btnCerrarSesion";
+            btnCerrarSesion.Size = new Size(180, 45);
+            btnCerrarSesion.TabIndex = 4;
+            btnCerrarSesion.Text = "CERRAR SESIÓN";
+            btnCerrarSesion.UseVisualStyleBackColor = false;
+            btnCerrarSesion.Click += btnCerrarSesion_Click;
             // 
             // FrmMenuUsuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnCerrarSesion);
-            this.Controls.Add(this.btnGenerarReporte);
-            this.Controls.Add(this.btnVerInventario);
-            this.Controls.Add(this.btnVerProductos);
-            this.Controls.Add(this.lblBienvenida);
-            this.Name = "FrmMenuUsuario";
-            this.Text = "FrmMenuUsuario";
-            this.Load += new System.EventHandler(this.FrmMenuUsuario_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(236, 240, 241);
+            ClientSize = new Size(800, 562);
+            Controls.Add(btnCerrarSesion);
+            Controls.Add(panelButtons);
+            Controls.Add(panelHeader);
+            Name = "FrmMenuUsuario";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "DevSolutions - Panel Usuario";
+            Load += FrmMenuUsuario_Load;
+            panelHeader.ResumeLayout(false);
+            panelHeader.PerformLayout();
+            panelButtons.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
 
-        private System.Windows.Forms.Label lblBienvenida;
-        private System.Windows.Forms.Button btnVerProductos;
-        private System.Windows.Forms.Button btnVerInventario;
-        private System.Windows.Forms.Button btnGenerarReporte;
-        private System.Windows.Forms.Button btnCerrarSesion;
+        private Label lblBienvenida;
+        private Button btnVerProductos;
+        private Button btnVerInventario;
+        private Button btnGenerarReporte;
+        private Button btnCerrarSesion;
+        private Panel panelHeader;
+        private Panel panelButtons;
     }
 }

@@ -6,8 +6,6 @@ using System.IO;
 using System.Windows.Forms;
 using DevSolutions.Dal;
 using DevSolutions.Models;
-using DevSolutions.Dal;
-using DevSolutions.Models;
 
 namespace DevSolutions.Forms
 {
@@ -16,28 +14,21 @@ namespace DevSolutions.Forms
         private readonly ProductoDAL productoDAL = new ProductoDAL();
         private readonly bool soloLectura = false;
 
-        // ==========================================================
-        // 🔹 Constructor normal (modo administrador)
-        // ==========================================================
         public FrmProductos()
         {
             InitializeComponent();
             CargarCategorias();
-            CargarBodegas();
+            CargarUnidadesMedida();
+            CargarTiposProductos();
+            CargarProveedores();
             CargarProductos();
         }
 
-        // ==========================================================
-        // 🔹 Constructor con parámetro (modo lectura)
-        // ==========================================================
         public FrmProductos(bool soloLectura) : this()
         {
             this.soloLectura = soloLectura;
         }
 
-        // ==========================================================
-        // 🔹 Evento Load
-        // ==========================================================
         private void FrmProductos_Load(object sender, EventArgs e)
         {
             if (soloLectura)
@@ -53,7 +44,7 @@ namespace DevSolutions.Forms
         }
 
         // ==========================================================
-        // 🔹 Cargar datos (categorías, bodegas, productos)
+        // 🔹 Cargar Categorías
         // ==========================================================
         private void CargarCategorias()
         {
@@ -81,14 +72,17 @@ namespace DevSolutions.Forms
             }
         }
 
-        private void CargarBodegas()
+        // ==========================================================
+        // 🔹 Cargar Unidades de Medida
+        // ==========================================================
+        private void CargarUnidadesMedida()
         {
             try
             {
                 using (SqlConnection conn = DBConnection.CreateConnection())
                 {
                     conn.Open();
-                    string query = "SELECT Bodega_Id, Bodega_Nombre FROM INV.Tb_Bodegas";
+                    string query = "SELECT UnidadMedida_Id, UnidadMedida_Nombre FROM INV.Tb_UnidadesMedidas";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -96,22 +90,102 @@ namespace DevSolutions.Forms
                     dt.Load(reader);
 
                     cmbBodega.DataSource = dt;
-                    cmbBodega.DisplayMember = "Bodega_Nombre";
-                    cmbBodega.ValueMember = "Bodega_Id";
+                    cmbBodega.DisplayMember = "UnidadMedida_Nombre";
+                    cmbBodega.ValueMember = "UnidadMedida_Id";
                     cmbBodega.SelectedIndex = -1;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error cargando bodegas: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error cargando unidades de medida: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        // ==========================================================
+        // 🔹 Cargar Tipos de Productos
+        // ==========================================================
+        private void CargarTiposProductos()
+        {
+            try
+            {
+                using (SqlConnection conn = DBConnection.CreateConnection())
+                {
+                    conn.Open();
+                    string query = "SELECT TipoProducto_Id, TipoProducto_Nombre FROM INV.Tb_TiposProductos";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    DataTable dt = new DataTable();
+                    dt.Load(reader);
+
+                    comboBoxTipoProducto.DataSource = dt;
+                    comboBoxTipoProducto.DisplayMember = "TipoProducto_Nombre";
+                    comboBoxTipoProducto.ValueMember = "TipoProducto_Id";
+                    comboBoxTipoProducto.SelectedIndex = -1;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error cargando tipos de productos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // ==========================================================
+        // 🔹 Cargar Proveedores
+        // ==========================================================
+        private void CargarProveedores()
+        {
+            try
+            {
+                using (SqlConnection conn = DBConnection.CreateConnection())
+                {
+                    conn.Open();
+                    string query = "SELECT Proveedor_Id, Proveedor_Nombre FROM INV.Tb_Proveedores";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    DataTable dt = new DataTable();
+                    dt.Load(reader);
+
+                    comboBoxProveedor.DataSource = dt;
+                    comboBoxProveedor.DisplayMember = "Proveedor_Nombre";
+                    comboBoxProveedor.ValueMember = "Proveedor_Id";
+                    comboBoxProveedor.SelectedIndex = -1;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error cargando proveedores: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // ==========================================================
+        // 🔹 Cargar Productos en DataGridView
+        // ==========================================================
         private void CargarProductos()
         {
             try
             {
                 dgvProductos.DataSource = productoDAL.ObtenerProductos();
+
+                // Ocultar columnas de IDs si existen
+                if (dgvProductos.Columns.Contains("Producto_Id"))
+                    dgvProductos.Columns["Producto_Id"].Visible = false;
+
+                if (dgvProductos.Columns.Contains("Categoria_Id"))
+                    dgvProductos.Columns["Categoria_Id"].Visible = false;
+
+                if (dgvProductos.Columns.Contains("TipoProducto_Id"))
+                    dgvProductos.Columns["TipoProducto_Id"].Visible = false;
+
+                if (dgvProductos.Columns.Contains("UnidadMedida_Id"))
+                    dgvProductos.Columns["UnidadMedida_Id"].Visible = false;
+
+                if (dgvProductos.Columns.Contains("Proveedor_Id"))
+                    dgvProductos.Columns["Proveedor_Id"].Visible = false;
+
+                if (dgvProductos.Columns.Contains("Producto_Imagen"))
+                    dgvProductos.Columns["Producto_Imagen"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -120,7 +194,67 @@ namespace DevSolutions.Forms
         }
 
         // ==========================================================
-        // 🔹 Cargar imagen
+        // 🔹 Validar Formulario
+        // ==========================================================
+        private bool ValidarFormulario(out string mensajeError)
+        {
+            mensajeError = "";
+
+            if (string.IsNullOrWhiteSpace(txtSKU.Text))
+            {
+                mensajeError = "El código SKU es obligatorio.";
+                txtSKU.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                mensajeError = "El nombre del producto es obligatorio.";
+                txtNombre.Focus();
+                return false;
+            }
+
+            if (cmbCategoria.SelectedIndex == -1)
+            {
+                mensajeError = "Seleccione una categoría.";
+                cmbCategoria.Focus();
+                return false;
+            }
+
+            if (comboBoxTipoProducto.SelectedIndex == -1)
+            {
+                mensajeError = "Seleccione un tipo de producto.";
+                comboBoxTipoProducto.Focus();
+                return false;
+            }
+
+            if (cmbBodega.SelectedIndex == -1)
+            {
+                mensajeError = "Seleccione una unidad de medida.";
+                cmbBodega.Focus();
+                return false;
+            }
+
+            if (comboBoxProveedor.SelectedIndex == -1)
+            {
+                mensajeError = "Seleccione un proveedor.";
+                comboBoxProveedor.Focus();
+                return false;
+            }
+
+            decimal costoUnitario;
+            if (!decimal.TryParse(txtCostoUnitario.Text, out costoUnitario) || costoUnitario <= 0)
+            {
+                mensajeError = "El costo unitario debe ser mayor a 0.";
+                txtCostoUnitario.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        // ==========================================================
+        // 🔹 Botón Cargar Imagen
         // ==========================================================
         private void btnCargarImagen_Click(object sender, EventArgs e)
         {
@@ -128,32 +262,60 @@ namespace DevSolutions.Forms
 
             using (OpenFileDialog open = new OpenFileDialog())
             {
-                open.Filter = "Archivos de imagen (.jpg; *.jpeg; *.png; *.bmp)|.jpg;.jpeg;.png;*.bmp";
+                open.Filter = "Archivos de imagen (*.jpg; *.jpeg; *.png; *.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
                 if (open.ShowDialog() == DialogResult.OK)
                 {
                     picImagen.Image = Image.FromFile(open.FileName);
+                    picImagen.SizeMode = PictureBoxSizeMode.StretchImage;
                     picImagen.Tag = open.FileName;
                 }
             }
         }
 
         // ==========================================================
-        // 🔹 Guardar producto
+        // 🔹 Botón Guardar Producto (NUEVO)
         // ==========================================================
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (soloLectura) return;
-
             try
             {
-                Producto producto = CrearProductoDesdeFormulario();
+                string mensajeError;
+                if (!ValidarFormulario(out mensajeError))
+                {
+                    MessageBox.Show(mensajeError, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (picImagen.Image == null)
+                {
+                    MessageBox.Show("Por favor carga una imagen antes de guardar.", "Validación",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Crear el producto
+                Producto producto = new Producto
+                {
+                    Producto_SKU = txtSKU.Text.Trim(),
+                    Producto_Nombre = txtNombre.Text.Trim(),
+                    Producto_Descripcion = txtDescripcion.Text.Trim(),
+                    Categoria_Id = Convert.ToInt32(cmbCategoria.SelectedValue),
+                    TipoProducto_Id = Convert.ToInt32(comboBoxTipoProducto.SelectedValue),
+                    UnidadMedida_Id = Convert.ToInt32(cmbBodega.SelectedValue),
+                    Proveedor_Id = Convert.ToInt32(comboBoxProveedor.SelectedValue),
+                    Producto_TieneDescuento = checkBoxDescuento.Checked,
+                    Producto_CostoUnitario = decimal.Parse(txtCostoUnitario.Text),
+                    Producto_Imagen = ImageToBytes(picImagen.Image)
+                };
+
+                // Insertar usando el DAL
                 productoDAL.InsertarProducto(producto);
 
                 MessageBox.Show("✅ Producto guardado correctamente.", "Éxito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                CargarProductos();
                 LimpiarCampos();
+                CargarProductos();
             }
             catch (Exception ex)
             {
@@ -163,36 +325,42 @@ namespace DevSolutions.Forms
         }
 
         // ==========================================================
-        // 🔹 Actualizar producto
+        // 🔹 Botón Actualizar Producto (MEJORADO)
         // ==========================================================
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtId.Text))
-            {
-                MessageBox.Show("Por favor selecciona un producto para actualizar.",
-                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
             try
             {
+                // Verificar si txtId existe y tiene valor
+                if (string.IsNullOrWhiteSpace(txtId.Text))
+                {
+                    MessageBox.Show("Seleccione un producto del grid haciendo clic en una fila.",
+                        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                string mensajeError;
+                if (!ValidarFormulario(out mensajeError))
+                {
+                    MessageBox.Show(mensajeError, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 using (SqlConnection conn = DBConnection.CreateConnection())
                 {
                     conn.Open();
                     string query = @"
                         UPDATE INV.Tb_Productos
-                        SET SKU = @SKU,
-                            Nombre = @Nombre,
-                            Descripcion = @Descripcion,
-                            CostoUnitario = @CostoUnitario,
-                            UnidadMedida = @UnidadMedida,
-                            Descuento = @Descuento,
-                            Stock = @Stock,
-                            CategoriaId = @CategoriaId,
-                            BodegaId = @BodegaId,
-                            EsBien = @EsBien,
-                            Imagen = @Imagen,
-                            PrecioVenta = @PrecioVenta
+                        SET Producto_SKU = @SKU,
+                            Producto_Nombre = @Nombre,
+                            Producto_Descripcion = @Descripcion,
+                            Producto_CostoUnitario = @CostoUnitario,
+                            UnidadMedida_Id = @UnidadMedida_Id,
+                            Producto_TieneDescuento = @TieneDescuento,
+                            Categoria_Id = @CategoriaId,
+                            TipoProducto_Id = @TipoProducto_Id,
+                            Proveedor_Id = @Proveedor_Id,
+                            Producto_Imagen = @Imagen
                         WHERE Producto_Id = @Producto_Id";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -200,19 +368,17 @@ namespace DevSolutions.Forms
                         cmd.Parameters.AddWithValue("@SKU", txtSKU.Text.Trim());
                         cmd.Parameters.AddWithValue("@Nombre", txtNombre.Text.Trim());
                         cmd.Parameters.AddWithValue("@Descripcion", txtDescripcion.Text.Trim());
-                        cmd.Parameters.AddWithValue("@CostoUnitario", decimal.TryParse(txtCostoUnitario.Text, out var costo) ? costo : 0);
-                        cmd.Parameters.AddWithValue("@UnidadMedida", txtUnidadMedida.Text.Trim());
-                        cmd.Parameters.AddWithValue("@Descuento", decimal.TryParse(txtDescuento.Text, out var desc) ? desc : 0);
-                        cmd.Parameters.AddWithValue("@Stock", int.TryParse(txtStock.Text, out var stock) ? stock : 0);
-                        cmd.Parameters.AddWithValue("@CategoriaId", cmbCategoria.SelectedValue ?? (object)DBNull.Value);
-                        cmd.Parameters.AddWithValue("@BodegaId", cmbBodega.SelectedValue ?? (object)DBNull.Value);
-                        cmd.Parameters.AddWithValue("@EsBien", chkEsBien.Checked);
-                        cmd.Parameters.AddWithValue("@PrecioVenta", decimal.TryParse(txtPrecioVenta.Text, out var precioVenta) ? precioVenta : 0);
+                        cmd.Parameters.AddWithValue("@CostoUnitario", decimal.Parse(txtCostoUnitario.Text));
+                        cmd.Parameters.AddWithValue("@UnidadMedida_Id", cmbBodega.SelectedValue);
+                        cmd.Parameters.AddWithValue("@TieneDescuento", checkBoxDescuento.Checked);
+                        cmd.Parameters.AddWithValue("@CategoriaId", cmbCategoria.SelectedValue);
+                        cmd.Parameters.AddWithValue("@TipoProducto_Id", comboBoxTipoProducto.SelectedValue);
+                        cmd.Parameters.AddWithValue("@Proveedor_Id", comboBoxProveedor.SelectedValue);
 
                         if (picImagen.Image != null)
-                            cmd.Parameters.Add("@Imagen", SqlDbType.VarBinary).Value = ImageToBytes(picImagen.Image);
+                            cmd.Parameters.Add("@Imagen", SqlDbType.Image).Value = ImageToBytes(picImagen.Image);
                         else
-                            cmd.Parameters.Add("@Imagen", SqlDbType.VarBinary).Value = DBNull.Value;
+                            cmd.Parameters.Add("@Imagen", SqlDbType.Image).Value = DBNull.Value;
 
                         cmd.Parameters.AddWithValue("@Producto_Id", int.Parse(txtId.Text));
 
@@ -223,6 +389,7 @@ namespace DevSolutions.Forms
                 MessageBox.Show("✅ Producto actualizado correctamente.", "Éxito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                LimpiarCampos();
                 CargarProductos();
             }
             catch (Exception ex)
@@ -233,7 +400,7 @@ namespace DevSolutions.Forms
         }
 
         // ==========================================================
-        // 🔹 Conversión imagen → bytes
+        // 🔹 Convertir Imagen a Bytes
         // ==========================================================
         private byte[] ImageToBytes(Image img)
         {
@@ -243,75 +410,73 @@ namespace DevSolutions.Forms
                 return ms.ToArray();
             }
         }
-
         // ==========================================================
-        // 🔹 Crear objeto Producto desde formulario
-        // ==========================================================
-        private Producto CrearProductoDesdeFormulario()
-        {
-            return new Producto
-            {
-                Producto_SKU = txtSKU.Text,
-                Producto_Nombre = txtNombre.Text,
-                Producto_Descripcion = txtDescripcion.Text,
-                Categoria_Id = Convert.ToInt32(cmbCategoria.SelectedValue),
-                Bodega_Id = Convert.ToInt32(cmbBodega.SelectedValue),
-                EsBien = chkEsBien.Checked,
-                Producto_CostoUnitario = decimal.TryParse(txtCostoUnitario.Text, out var costo) ? costo : 0,
-                UnidadMedida = txtUnidadMedida.Text,
-                Descuento = decimal.TryParse(txtDescuento.Text, out var desc) ? desc : 0,
-                Producto_Imagen = picImagen.Image != null ? ImageToBytes(picImagen.Image) : null,
-                Stock = int.TryParse(txtStock.Text, out var stock) ? stock : 0,
-                PrecioVenta = decimal.TryParse(txtPrecioVenta.Text, out var precioVenta) ? precioVenta : 0
-            };
-        }
-
-        // ==========================================================
-        // 🔹 DataGridView: seleccionar fila
+        // 🔹 Click en DataGridView (CORREGIDO GDI+ COMPLETO)
         // ==========================================================
         private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
-            DataGridViewRow fila = dgvProductos.Rows[e.RowIndex];
-
-            txtId.Text = fila.Cells["Producto_Id"].Value?.ToString() ?? "";
-            txtSKU.Text = fila.Cells["SKU"].Value?.ToString() ?? "";
-            txtNombre.Text = fila.Cells["Nombre"].Value?.ToString() ?? "";
-            txtDescripcion.Text = fila.Cells["Descripcion"].Value?.ToString() ?? "";
-            txtCostoUnitario.Text = fila.Cells["CostoUnitario"].Value?.ToString() ?? "";
-            txtUnidadMedida.Text = fila.Cells["UnidadMedida"].Value?.ToString() ?? "";
-            txtDescuento.Text = fila.Cells["Descuento"].Value?.ToString() ?? "";
-            txtStock.Text = fila.Cells["Stock"].Value?.ToString() ?? "";
-            txtPrecioVenta.Text = fila.Cells["PrecioVenta"].Value?.ToString() ?? "";
-
-            cmbCategoria.SelectedValue = fila.Cells["CategoriaId"].Value ?? -1;
-            cmbBodega.SelectedValue = fila.Cells["BodegaId"].Value ?? -1;
-            chkEsBien.Checked = fila.Cells["EsBien"].Value != DBNull.Value &&
-                                Convert.ToBoolean(fila.Cells["EsBien"].Value);
-
-            if (fila.Cells["Imagen"].Value != DBNull.Value)
+            try
             {
-                byte[] imgBytes = (byte[])fila.Cells["Imagen"].Value;
-                using (MemoryStream ms = new MemoryStream(imgBytes))
+                DataGridViewRow fila = dgvProductos.Rows[e.RowIndex];
+
+                // Cargar ID y datos básicos
+                txtId.Text = fila.Cells["Producto_Id"].Value?.ToString() ?? "";
+                txtSKU.Text = fila.Cells["Producto_SKU"].Value?.ToString() ?? "";
+                txtNombre.Text = fila.Cells["Producto_Nombre"].Value?.ToString() ?? "";
+                txtDescripcion.Text = fila.Cells["Producto_Descripcion"].Value?.ToString() ?? "";
+                txtCostoUnitario.Text = fila.Cells["Producto_CostoUnitario"].Value?.ToString() ?? "";
+
+                // ComboBoxes
+                cmbCategoria.SelectedValue = fila.Cells["Categoria_Id"].Value != DBNull.Value
+                    ? Convert.ToInt32(fila.Cells["Categoria_Id"].Value)
+                    : -1;
+
+                comboBoxTipoProducto.SelectedValue = fila.Cells["TipoProducto_Id"].Value != DBNull.Value
+                    ? Convert.ToInt32(fila.Cells["TipoProducto_Id"].Value)
+                    : -1;
+
+                cmbBodega.SelectedValue = fila.Cells["UnidadMedida_Id"].Value != DBNull.Value
+                    ? Convert.ToInt32(fila.Cells["UnidadMedida_Id"].Value)
+                    : -1;
+
+                comboBoxProveedor.SelectedValue = fila.Cells["Proveedor_Id"].Value != DBNull.Value
+                    ? Convert.ToInt32(fila.Cells["Proveedor_Id"].Value)
+                    : -1;
+
+                // CheckBox
+                checkBoxDescuento.Checked = fila.Cells["Producto_TieneDescuento"].Value != DBNull.Value &&
+                                            Convert.ToBoolean(fila.Cells["Producto_TieneDescuento"].Value);
+
+                // Imagen (✅ CORREGIDO GDI+)
+                if (picImagen.Image != null)
                 {
-                    picImagen.Image = Image.FromStream(ms);
+                    picImagen.Image.Dispose(); // Liberar imagen anterior
+                    picImagen.Image = null;
+                }
+
+                if (fila.Cells["Producto_Imagen"].Value != DBNull.Value)
+                {
+                    byte[] imgBytes = (byte[])fila.Cells["Producto_Imagen"].Value;
+                    using (MemoryStream ms = new MemoryStream(imgBytes))
+                    {
+                        Image tempImg = Image.FromStream(ms);
+                        picImagen.Image = new Bitmap(tempImg); // ✅ Crear un bitmap nuevo
+                        picImagen.SizeMode = PictureBoxSizeMode.StretchImage;
+                    }
                 }
             }
-            else
+            catch (Exception ex)
             {
-                picImagen.Image = null;
+                MessageBox.Show($"Error al cargar producto: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         // ==========================================================
-        // 🔹 Limpiar
+        // 🔹 Limpiar Campos
         // ==========================================================
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            LimpiarCampos();
-        }
-
         private void LimpiarCampos()
         {
             txtId.Clear();
@@ -319,23 +484,36 @@ namespace DevSolutions.Forms
             txtNombre.Clear();
             txtDescripcion.Clear();
             txtCostoUnitario.Clear();
-            txtUnidadMedida.Clear();
-            txtDescuento.Clear();
-            txtStock.Clear();
-            txtPrecioVenta.Clear();
             cmbCategoria.SelectedIndex = -1;
             cmbBodega.SelectedIndex = -1;
-            chkEsBien.Checked = false;
+            comboBoxTipoProducto.SelectedIndex = -1;
+            comboBoxProveedor.SelectedIndex = -1;
+            checkBoxDescuento.Checked = false;
             picImagen.Image = null;
         }
 
+        // ==========================================================
+        // 🔹 Botón Limpiar
+        // ==========================================================
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+        }
+
+        // ==========================================================
+        // 🔹 Botón Regresar
+        // ==========================================================
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        // ==========================================================
+        // 🔹 Eventos vacíos (opcional mantenerlos para el diseñador)
+        // ==========================================================
         private void label4_Click(object sender, EventArgs e) { }
-
         private void txtPrecioVenta_TextChanged(object sender, EventArgs e) { }
+        private void cmbBodega_SelectedIndexChanged(object sender, EventArgs e) { }
+
     }
 }

@@ -28,85 +28,144 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.cmbTipoReporte = new System.Windows.Forms.ComboBox();
-            this.btnGenerarPDF = new System.Windows.Forms.Button();
-            this.btnVistaPrevia = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            panelHeader = new Panel();
+            lblTitulo = new Label();
+            panelFormulario = new Panel();
+            label2 = new Label();
+            cmbTipoReporte = new ComboBox();
+            panelBotones = new Panel();
+            btnGenerarPDF = new Button();
+            btnVistaPrevia = new Button();
+            panelHeader.SuspendLayout();
+            panelFormulario.SuspendLayout();
+            panelBotones.SuspendLayout();
+            SuspendLayout();
             // 
-            // label1
+            // panelHeader
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            panelHeader.BackColor = Color.FromArgb(41, 128, 185);
+            panelHeader.Controls.Add(lblTitulo);
+            panelHeader.Dock = DockStyle.Top;
+            panelHeader.Location = new Point(0, 0);
+            panelHeader.Name = "panelHeader";
+            panelHeader.Size = new Size(900, 80);
+            panelHeader.TabIndex = 0;
             // 
             // lblTitulo
             // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Location = new System.Drawing.Point(283, 78);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(179, 16);
-            this.lblTitulo.TabIndex = 1;
-            this.lblTitulo.Text = "Seleccione el tipo de reporte";
-            this.lblTitulo.Click += new System.EventHandler(this.lblTitulo_Click);
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
+            lblTitulo.ForeColor = Color.White;
+            lblTitulo.Location = new Point(30, 22);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(334, 41);
+            lblTitulo.TabIndex = 0;
+            lblTitulo.Text = "Generación de Reportes";
+            // 
+            // panelFormulario
+            // 
+            panelFormulario.BackColor = Color.White;
+            panelFormulario.BorderStyle = BorderStyle.FixedSingle;
+            panelFormulario.Controls.Add(label2);
+            panelFormulario.Controls.Add(cmbTipoReporte);
+            panelFormulario.Location = new Point(50, 120);
+            panelFormulario.Name = "panelFormulario";
+            panelFormulario.Size = new Size(800, 120);
+            panelFormulario.TabIndex = 1;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label2.ForeColor = Color.FromArgb(52, 73, 94);
+            label2.Location = new Point(30, 25);
+            label2.Name = "label2";
+            label2.Size = new Size(210, 28);
+            label2.TabIndex = 1;
+            label2.Text = "Tipo de Reporte";
             // 
             // cmbTipoReporte
             // 
-            this.cmbTipoReporte.FormattingEnabled = true;
-            this.cmbTipoReporte.Location = new System.Drawing.Point(269, 107);
-            this.cmbTipoReporte.Name = "cmbTipoReporte";
-            this.cmbTipoReporte.Size = new System.Drawing.Size(207, 24);
-            this.cmbTipoReporte.TabIndex = 2;
-            this.cmbTipoReporte.SelectedIndexChanged += new System.EventHandler(this.cmbTipoReporte_SelectedIndexChanged);
+            cmbTipoReporte.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbTipoReporte.Font = new Font("Segoe UI", 11F);
+            cmbTipoReporte.FormattingEnabled = true;
+            cmbTipoReporte.Location = new Point(30, 60);
+            cmbTipoReporte.Name = "cmbTipoReporte";
+            cmbTipoReporte.Size = new Size(740, 33);
+            cmbTipoReporte.TabIndex = 0;
+            // 
+            // panelBotones
+            // 
+            panelBotones.BackColor = Color.White;
+            panelBotones.BorderStyle = BorderStyle.FixedSingle;
+            panelBotones.Controls.Add(btnGenerarPDF);
+            panelBotones.Controls.Add(btnVistaPrevia);
+            panelBotones.Location = new Point(50, 260);
+            panelBotones.Name = "panelBotones";
+            panelBotones.Size = new Size(800, 180);
+            panelBotones.TabIndex = 2;
             // 
             // btnGenerarPDF
             // 
-            this.btnGenerarPDF.Location = new System.Drawing.Point(312, 150);
-            this.btnGenerarPDF.Name = "btnGenerarPDF";
-            this.btnGenerarPDF.Size = new System.Drawing.Size(118, 82);
-            this.btnGenerarPDF.TabIndex = 3;
-            this.btnGenerarPDF.Text = "Generar PDF";
-            this.btnGenerarPDF.UseVisualStyleBackColor = true;
-            this.btnGenerarPDF.Click += new System.EventHandler(this.btnGenerarPDF_Click);
+            btnGenerarPDF.BackColor = Color.FromArgb(46, 204, 113);
+            btnGenerarPDF.FlatAppearance.BorderSize = 0;
+            btnGenerarPDF.FlatStyle = FlatStyle.Flat;
+            btnGenerarPDF.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnGenerarPDF.ForeColor = Color.White;
+            btnGenerarPDF.Location = new Point(100, 50);
+            btnGenerarPDF.Name = "btnGenerarPDF";
+            btnGenerarPDF.Size = new Size(250, 80);
+            btnGenerarPDF.TabIndex = 0;
+            btnGenerarPDF.Text = "📄 GENERAR PDF";
+            btnGenerarPDF.UseVisualStyleBackColor = false;
+            btnGenerarPDF.Click += btnGenerarPDF_Click;
             // 
             // btnVistaPrevia
             // 
-            this.btnVistaPrevia.Location = new System.Drawing.Point(286, 264);
-            this.btnVistaPrevia.Name = "btnVistaPrevia";
-            this.btnVistaPrevia.Size = new System.Drawing.Size(176, 26);
-            this.btnVistaPrevia.TabIndex = 4;
-            this.btnVistaPrevia.Text = "Vista previa PDF";
-            this.btnVistaPrevia.UseVisualStyleBackColor = true;
-            this.btnVistaPrevia.Click += new System.EventHandler(this.btnVistaPrevia_Click);
+            btnVistaPrevia.BackColor = Color.FromArgb(52, 152, 219);
+            btnVistaPrevia.FlatAppearance.BorderSize = 0;
+            btnVistaPrevia.FlatStyle = FlatStyle.Flat;
+            btnVistaPrevia.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnVistaPrevia.ForeColor = Color.White;
+            btnVistaPrevia.Location = new Point(450, 50);
+            btnVistaPrevia.Name = "btnVistaPrevia";
+            btnVistaPrevia.Size = new Size(250, 80);
+            btnVistaPrevia.TabIndex = 1;
+            btnVistaPrevia.Text = "👁 VISTA PREVIA";
+            btnVistaPrevia.UseVisualStyleBackColor = false;
+            btnVistaPrevia.Click += btnVistaPrevia_Click;
             // 
             // FrmReporte
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnVistaPrevia);
-            this.Controls.Add(this.btnGenerarPDF);
-            this.Controls.Add(this.cmbTipoReporte);
-            this.Controls.Add(this.lblTitulo);
-            this.Controls.Add(this.label1);
-            this.Name = "FrmReporte";
-            this.Text = "FrmReporte";
-            this.Load += new System.EventHandler(this.FrmReporte_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(236, 240, 241);
+            ClientSize = new Size(900, 500);
+            Controls.Add(panelBotones);
+            Controls.Add(panelFormulario);
+            Controls.Add(panelHeader);
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "FrmReporte";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "DevSolutions - Generación de Reportes";
+            Load += FrmReporte_Load;
+            panelHeader.ResumeLayout(false);
+            panelHeader.PerformLayout();
+            panelFormulario.ResumeLayout(false);
+            panelFormulario.PerformLayout();
+            panelBotones.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.ComboBox cmbTipoReporte;
-        private System.Windows.Forms.Button btnGenerarPDF;
-        private System.Windows.Forms.Button btnVistaPrevia;
+        private Panel panelHeader;
+        private Label lblTitulo;
+        private Panel panelFormulario;
+        private Label label2;
+        private ComboBox cmbTipoReporte;
+        private Panel panelBotones;
+        private Button btnGenerarPDF;
+        private Button btnVistaPrevia;
     }
 }

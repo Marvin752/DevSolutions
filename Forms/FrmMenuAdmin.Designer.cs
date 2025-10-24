@@ -2,15 +2,8 @@
 {
     partial class FrmMenuAdmin
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,93 +15,138 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnProductos = new System.Windows.Forms.Button();
-            this.btnInventario = new System.Windows.Forms.Button();
-            this.btnReporte = new System.Windows.Forms.Button();
-            this.btnCerrarSesion = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            label1 = new Label();
+            btnProductos = new Button();
+            btnInventario = new Button();
+            btnReporte = new Button();
+            btnCerrarSesion = new Button();
+            panelHeader = new Panel();
+            panelButtons = new Panel();
+            panelHeader.SuspendLayout();
+            panelButtons.SuspendLayout();
+            SuspendLayout();
+            // 
+            // panelHeader
+            // 
+            panelHeader.BackColor = Color.FromArgb(41, 128, 185);
+            panelHeader.Controls.Add(label1);
+            panelHeader.Dock = DockStyle.Top;
+            panelHeader.Location = new Point(0, 0);
+            panelHeader.Name = "panelHeader";
+            panelHeader.Size = new Size(882, 100);
+            panelHeader.TabIndex = 5;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(272, 158);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Bienvenido Administrador";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(280, 30);
+            label1.Name = "label1";
+            label1.Size = new Size(350, 46);
+            label1.TabIndex = 0;
+            label1.Text = "Panel Administrador";
+            // 
+            // panelButtons
+            // 
+            panelButtons.BackColor = Color.White;
+            panelButtons.Controls.Add(btnProductos);
+            panelButtons.Controls.Add(btnInventario);
+            panelButtons.Controls.Add(btnReporte);
+            panelButtons.Location = new Point(241, 150);
+            panelButtons.Name = "panelButtons";
+            panelButtons.Size = new Size(400, 300);
+            panelButtons.TabIndex = 6;
             // 
             // btnProductos
             // 
-            this.btnProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnProductos.Location = new System.Drawing.Point(275, 194);
-            this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Size = new System.Drawing.Size(186, 40);
-            this.btnProductos.TabIndex = 1;
-            this.btnProductos.Text = "Gestión de productos";
-            this.btnProductos.UseVisualStyleBackColor = true;
-            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
+            btnProductos.BackColor = Color.FromArgb(52, 152, 219);
+            btnProductos.FlatAppearance.BorderSize = 0;
+            btnProductos.FlatStyle = FlatStyle.Flat;
+            btnProductos.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnProductos.ForeColor = Color.White;
+            btnProductos.Location = new Point(50, 30);
+            btnProductos.Name = "btnProductos";
+            btnProductos.Size = new Size(300, 60);
+            btnProductos.TabIndex = 1;
+            btnProductos.Text = "GESTIÓN DE PRODUCTOS";
+            btnProductos.UseVisualStyleBackColor = false;
+            btnProductos.Click += btnProductos_Click;
             // 
             // btnInventario
             // 
-            this.btnInventario.Location = new System.Drawing.Point(275, 240);
-            this.btnInventario.Name = "btnInventario";
-            this.btnInventario.Size = new System.Drawing.Size(186, 38);
-            this.btnInventario.TabIndex = 2;
-            this.btnInventario.Text = "Gestion de inventario";
-            this.btnInventario.UseVisualStyleBackColor = true;
-            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
+            btnInventario.BackColor = Color.FromArgb(46, 204, 113);
+            btnInventario.FlatAppearance.BorderSize = 0;
+            btnInventario.FlatStyle = FlatStyle.Flat;
+            btnInventario.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnInventario.ForeColor = Color.White;
+            btnInventario.Location = new Point(50, 110);
+            btnInventario.Name = "btnInventario";
+            btnInventario.Size = new Size(300, 60);
+            btnInventario.TabIndex = 2;
+            btnInventario.Text = "GESTIÓN DE INVENTARIO";
+            btnInventario.UseVisualStyleBackColor = false;
+            btnInventario.Click += btnInventario_Click;
             // 
             // btnReporte
             // 
-            this.btnReporte.Location = new System.Drawing.Point(556, 303);
-            this.btnReporte.Name = "btnReporte";
-            this.btnReporte.Size = new System.Drawing.Size(140, 50);
-            this.btnReporte.TabIndex = 3;
-            this.btnReporte.Text = "Generar Reporte PDF";
-            this.btnReporte.UseVisualStyleBackColor = true;
-            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
+            btnReporte.BackColor = Color.FromArgb(155, 89, 182);
+            btnReporte.FlatAppearance.BorderSize = 0;
+            btnReporte.FlatStyle = FlatStyle.Flat;
+            btnReporte.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnReporte.ForeColor = Color.White;
+            btnReporte.Location = new Point(50, 190);
+            btnReporte.Name = "btnReporte";
+            btnReporte.Size = new Size(300, 60);
+            btnReporte.TabIndex = 3;
+            btnReporte.Text = "GENERAR REPORTE PDF";
+            btnReporte.UseVisualStyleBackColor = false;
+            btnReporte.Click += btnReporte_Click;
             // 
             // btnCerrarSesion
             // 
-            this.btnCerrarSesion.Location = new System.Drawing.Point(41, 379);
-            this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(166, 43);
-            this.btnCerrarSesion.TabIndex = 4;
-            this.btnCerrarSesion.Text = "Cerrar sesion";
-            this.btnCerrarSesion.UseVisualStyleBackColor = true;
-            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
+            btnCerrarSesion.BackColor = Color.FromArgb(231, 76, 60);
+            btnCerrarSesion.FlatAppearance.BorderSize = 0;
+            btnCerrarSesion.FlatStyle = FlatStyle.Flat;
+            btnCerrarSesion.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnCerrarSesion.ForeColor = Color.White;
+            btnCerrarSesion.Location = new Point(30, 520);
+            btnCerrarSesion.Name = "btnCerrarSesion";
+            btnCerrarSesion.Size = new Size(180, 45);
+            btnCerrarSesion.TabIndex = 4;
+            btnCerrarSesion.Text = "CERRAR SESIÓN";
+            btnCerrarSesion.UseVisualStyleBackColor = false;
+            btnCerrarSesion.Click += btnCerrarSesion_Click;
             // 
             // FrmMenuAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(882, 472);
-            this.Controls.Add(this.btnCerrarSesion);
-            this.Controls.Add(this.btnReporte);
-            this.Controls.Add(this.btnInventario);
-            this.Controls.Add(this.btnProductos);
-            this.Controls.Add(this.label1);
-            this.Name = "FrmMenuAdmin";
-            this.Text = "FrmMenuAdmin";
-            this.Load += new System.EventHandler(this.FrmMenuAdmin_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(236, 240, 241);
+            ClientSize = new Size(882, 590);
+            Controls.Add(btnCerrarSesion);
+            Controls.Add(panelButtons);
+            Controls.Add(panelHeader);
+            Name = "FrmMenuAdmin";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "DevSolutions - Panel Administrador";
+            Load += FrmMenuAdmin_Load;
+            panelHeader.ResumeLayout(false);
+            panelHeader.PerformLayout();
+            panelButtons.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnProductos;
-        private System.Windows.Forms.Button btnInventario;
-        private System.Windows.Forms.Button btnReporte;
-        private System.Windows.Forms.Button btnCerrarSesion;
+        private Label label1;
+        private Button btnProductos;
+        private Button btnInventario;
+        private Button btnReporte;
+        private Button btnCerrarSesion;
+        private Panel panelHeader;
+        private Panel panelButtons;
     }
 }

@@ -96,7 +96,7 @@ namespace DevSolutions.Dal
                         cmd.Parameters.AddWithValue("@Producto_Nombre", p.Producto_Nombre ?? (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("@Producto_Descripcion", p.Producto_Descripcion ?? (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("@Producto_CostoUnitario", p.Producto_CostoUnitario);
-                        cmd.Parameters.AddWithValue("@Producto_TieneDescuento", p.Descuento);
+                        cmd.Parameters.AddWithValue("@Producto_TieneDescuento", p.Producto_TieneDescuento);
                         cmd.Parameters.AddWithValue("@Categoria_Id", p.Categoria_Id);
                         cmd.Parameters.AddWithValue("@TipoProducto_Id", p.TipoProducto_Id);
                         cmd.Parameters.AddWithValue("@UnidadMedida_Id", p.UnidadMedida_Id);
@@ -146,7 +146,7 @@ namespace DevSolutions.Dal
                         cmd.Parameters.AddWithValue("@Producto_Nombre", p.Producto_Nombre ?? (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("@Producto_Descripcion", p.Producto_Descripcion ?? (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("@Producto_CostoUnitario", p.Producto_CostoUnitario);
-                        cmd.Parameters.AddWithValue("@Producto_TieneDescuento", p.Descuento);
+                        cmd.Parameters.AddWithValue("@Producto_TieneDescuento", p.Producto_TieneDescuento);
                         cmd.Parameters.AddWithValue("@Categoria_Id", p.Categoria_Id);
                         cmd.Parameters.AddWithValue("@TipoProducto_Id", p.TipoProducto_Id);
                         cmd.Parameters.AddWithValue("@UnidadMedida_Id", p.UnidadMedida_Id);

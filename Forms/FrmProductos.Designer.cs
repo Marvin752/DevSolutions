@@ -28,353 +28,472 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.txtSKU = new System.Windows.Forms.TextBox();
-            this.cmbCategoria = new System.Windows.Forms.ComboBox();
-            this.cmbBodega = new System.Windows.Forms.ComboBox();
-            this.chkEsBien = new System.Windows.Forms.CheckBox();
-            this.txtCostoUnitario = new System.Windows.Forms.TextBox();
-            this.txtUnidadMedida = new System.Windows.Forms.TextBox();
-            this.txtDescuento = new System.Windows.Forms.TextBox();
-            this.picImagen = new System.Windows.Forms.PictureBox();
-            this.btnCargarImagen = new System.Windows.Forms.Button();
-            this.txtStock = new System.Windows.Forms.TextBox();
-            this.txtPrecioVenta = new System.Windows.Forms.TextBox();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.btnRegresar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.picImagen)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(344, 55);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(100, 22);
-            this.txtId.TabIndex = 0;
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            txtNombre = new TextBox();
+            txtDescripcion = new TextBox();
+            txtSKU = new TextBox();
+            cmbCategoria = new ComboBox();
+            cmbBodega = new ComboBox();
+            txtCostoUnitario = new TextBox();
+            picImagen = new PictureBox();
+            btnCargarImagen = new Button();
+            btnGuardar = new Button();
+            btnActualizar = new Button();
+            btnLimpiar = new Button();
+            dgvProductos = new DataGridView();
+            btnRegresar = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label5 = new Label();
+            label8 = new Label();
+            labelCateogria = new Label();
+            label9 = new Label();
+            checkBoxDescuento = new CheckBox();
+            comboBoxTipoProducto = new ComboBox();
+            label4 = new Label();
+            comboBoxProveedor = new ComboBox();
+            panelHeader = new Panel();
+            txtId = new TextBox();
+            lblTitulo = new Label();
+            panelFormulario = new Panel();
+            panelImagen = new Panel();
+            panelBotones = new Panel();
+            ((System.ComponentModel.ISupportInitialize)picImagen).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
+            panelHeader.SuspendLayout();
+            panelFormulario.SuspendLayout();
+            panelImagen.SuspendLayout();
+            panelBotones.SuspendLayout();
+            SuspendLayout();
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(344, 169);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 22);
-            this.txtNombre.TabIndex = 1;
+            txtNombre.Font = new Font("Segoe UI", 10F);
+            txtNombre.Location = new Point(260, 52);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(300, 30);
+            txtNombre.TabIndex = 1;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(344, 228);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(100, 22);
-            this.txtDescripcion.TabIndex = 2;
+            txtDescripcion.Font = new Font("Segoe UI", 10F);
+            txtDescripcion.Location = new Point(30, 122);
+            txtDescripcion.Multiline = true;
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.Size = new Size(530, 60);
+            txtDescripcion.TabIndex = 2;
             // 
             // txtSKU
             // 
-            this.txtSKU.Location = new System.Drawing.Point(344, 110);
-            this.txtSKU.Name = "txtSKU";
-            this.txtSKU.Size = new System.Drawing.Size(100, 22);
-            this.txtSKU.TabIndex = 3;
+            txtSKU.Font = new Font("Segoe UI", 10F);
+            txtSKU.Location = new Point(30, 52);
+            txtSKU.Name = "txtSKU";
+            txtSKU.Size = new Size(200, 30);
+            txtSKU.TabIndex = 3;
             // 
             // cmbCategoria
             // 
-            this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Location = new System.Drawing.Point(612, 110);
-            this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(202, 24);
-            this.cmbCategoria.TabIndex = 4;
-            this.cmbCategoria.Text = "“Seleccione una categoría”";
+            cmbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCategoria.Font = new Font("Segoe UI", 10F);
+            cmbCategoria.FormattingEnabled = true;
+            cmbCategoria.Location = new Point(350, 222);
+            cmbCategoria.Name = "cmbCategoria";
+            cmbCategoria.Size = new Size(210, 31);
+            cmbCategoria.TabIndex = 4;
             // 
             // cmbBodega
             // 
-            this.cmbBodega.FormattingEnabled = true;
-            this.cmbBodega.Location = new System.Drawing.Point(612, 157);
-            this.cmbBodega.Name = "cmbBodega";
-            this.cmbBodega.Size = new System.Drawing.Size(202, 24);
-            this.cmbBodega.TabIndex = 5;
-            this.cmbBodega.Text = "“Seleccione una bodega”";
-            // 
-            // chkEsBien
-            // 
-            this.chkEsBien.AutoSize = true;
-            this.chkEsBien.Location = new System.Drawing.Point(612, 210);
-            this.chkEsBien.Name = "chkEsBien";
-            this.chkEsBien.Size = new System.Drawing.Size(175, 20);
-            this.chkEsBien.TabIndex = 6;
-            this.chkEsBien.Text = "“Es un bien (no servicio)”";
-            this.chkEsBien.UseVisualStyleBackColor = true;
+            cmbBodega.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbBodega.Font = new Font("Segoe UI", 10F);
+            cmbBodega.FormattingEnabled = true;
+            cmbBodega.Location = new Point(30, 222);
+            cmbBodega.Name = "cmbBodega";
+            cmbBodega.Size = new Size(300, 31);
+            cmbBodega.TabIndex = 5;
+            cmbBodega.SelectedIndexChanged += cmbBodega_SelectedIndexChanged;
             // 
             // txtCostoUnitario
             // 
-            this.txtCostoUnitario.Location = new System.Drawing.Point(344, 285);
-            this.txtCostoUnitario.Name = "txtCostoUnitario";
-            this.txtCostoUnitario.Size = new System.Drawing.Size(100, 22);
-            this.txtCostoUnitario.TabIndex = 7;
-            // 
-            // txtUnidadMedida
-            // 
-            this.txtUnidadMedida.Location = new System.Drawing.Point(344, 329);
-            this.txtUnidadMedida.Name = "txtUnidadMedida";
-            this.txtUnidadMedida.Size = new System.Drawing.Size(100, 22);
-            this.txtUnidadMedida.TabIndex = 8;
-            // 
-            // txtDescuento
-            // 
-            this.txtDescuento.Location = new System.Drawing.Point(344, 374);
-            this.txtDescuento.Name = "txtDescuento";
-            this.txtDescuento.Size = new System.Drawing.Size(100, 22);
-            this.txtDescuento.TabIndex = 9;
+            txtCostoUnitario.Font = new Font("Segoe UI", 10F);
+            txtCostoUnitario.Location = new Point(600, 52);
+            txtCostoUnitario.Name = "txtCostoUnitario";
+            txtCostoUnitario.Size = new Size(250, 30);
+            txtCostoUnitario.TabIndex = 7;
             // 
             // picImagen
             // 
-            this.picImagen.Location = new System.Drawing.Point(899, 191);
-            this.picImagen.Name = "picImagen";
-            this.picImagen.Size = new System.Drawing.Size(286, 115);
-            this.picImagen.TabIndex = 10;
-            this.picImagen.TabStop = false;
+            picImagen.BorderStyle = BorderStyle.FixedSingle;
+            picImagen.Location = new Point(30, 25);
+            picImagen.Name = "picImagen";
+            picImagen.Size = new Size(490, 180);
+            picImagen.SizeMode = PictureBoxSizeMode.Zoom;
+            picImagen.TabIndex = 10;
+            picImagen.TabStop = false;
             // 
             // btnCargarImagen
             // 
-            this.btnCargarImagen.Location = new System.Drawing.Point(932, 328);
-            this.btnCargarImagen.Name = "btnCargarImagen";
-            this.btnCargarImagen.Size = new System.Drawing.Size(210, 45);
-            this.btnCargarImagen.TabIndex = 11;
-            this.btnCargarImagen.Text = "Cargar imagen desde archivo";
-            this.btnCargarImagen.UseVisualStyleBackColor = true;
-            this.btnCargarImagen.Click += new System.EventHandler(this.btnCargarImagen_Click);
-            // 
-            // txtStock
-            // 
-            this.txtStock.Location = new System.Drawing.Point(932, 397);
-            this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(140, 22);
-            this.txtStock.TabIndex = 12;
-            // 
-            // txtPrecioVenta
-            // 
-            this.txtPrecioVenta.Location = new System.Drawing.Point(932, 437);
-            this.txtPrecioVenta.Name = "txtPrecioVenta";
-            this.txtPrecioVenta.Size = new System.Drawing.Size(140, 22);
-            this.txtPrecioVenta.TabIndex = 13;
-            this.txtPrecioVenta.TextChanged += new System.EventHandler(this.txtPrecioVenta_TextChanged);
+            btnCargarImagen.BackColor = Color.FromArgb(52, 152, 219);
+            btnCargarImagen.FlatAppearance.BorderSize = 0;
+            btnCargarImagen.FlatStyle = FlatStyle.Flat;
+            btnCargarImagen.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnCargarImagen.ForeColor = Color.White;
+            btnCargarImagen.Location = new Point(150, 222);
+            btnCargarImagen.Name = "btnCargarImagen";
+            btnCargarImagen.Size = new Size(240, 45);
+            btnCargarImagen.TabIndex = 11;
+            btnCargarImagen.Text = "CARGAR IMAGEN";
+            btnCargarImagen.UseVisualStyleBackColor = false;
+            btnCargarImagen.Click += btnCargarImagen_Click;
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(63, 285);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(150, 23);
-            this.btnGuardar.TabIndex = 14;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            btnGuardar.BackColor = Color.FromArgb(46, 204, 113);
+            btnGuardar.FlatAppearance.BorderSize = 0;
+            btnGuardar.FlatStyle = FlatStyle.Flat;
+            btnGuardar.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnGuardar.ForeColor = Color.White;
+            btnGuardar.Location = new Point(30, 15);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(180, 50);
+            btnGuardar.TabIndex = 14;
+            btnGuardar.Text = "GUARDAR";
+            btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(63, 328);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(150, 23);
-            this.btnActualizar.TabIndex = 15;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            btnActualizar.BackColor = Color.FromArgb(52, 152, 219);
+            btnActualizar.FlatAppearance.BorderSize = 0;
+            btnActualizar.FlatStyle = FlatStyle.Flat;
+            btnActualizar.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnActualizar.ForeColor = Color.White;
+            btnActualizar.Location = new Point(230, 15);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(180, 50);
+            btnActualizar.TabIndex = 15;
+            btnActualizar.Text = "ACTUALIZAR";
+            btnActualizar.UseVisualStyleBackColor = false;
+            btnActualizar.Click += btnActualizar_Click;
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(63, 374);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(150, 23);
-            this.btnLimpiar.TabIndex = 16;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            btnLimpiar.BackColor = Color.FromArgb(243, 156, 18);
+            btnLimpiar.FlatAppearance.BorderSize = 0;
+            btnLimpiar.FlatStyle = FlatStyle.Flat;
+            btnLimpiar.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnLimpiar.ForeColor = Color.White;
+            btnLimpiar.Location = new Point(430, 15);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(180, 50);
+            btnLimpiar.TabIndex = 16;
+            btnLimpiar.Text = "LIMPIAR";
+            btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // dgvProductos
             // 
-            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductos.Location = new System.Drawing.Point(189, 502);
-            this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.RowHeadersWidth = 51;
-            this.dgvProductos.RowTemplate.Height = 24;
-            this.dgvProductos.Size = new System.Drawing.Size(806, 188);
-            this.dgvProductos.TabIndex = 17;
-            this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
+            dgvProductos.AllowUserToAddRows = false;
+            dgvProductos.AllowUserToDeleteRows = false;
+            dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvProductos.BackgroundColor = Color.White;
+            dgvProductos.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(52, 73, 94);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(52, 73, 94);
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvProductos.ColumnHeadersHeight = 40;
+            dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvProductos.EnableHeadersVisualStyles = false;
+            dgvProductos.GridColor = Color.FromArgb(189, 195, 199);
+            dgvProductos.Location = new Point(30, 540);
+            dgvProductos.Name = "dgvProductos";
+            dgvProductos.ReadOnly = true;
+            dgvProductos.RowHeadersVisible = false;
+            dgvProductos.RowHeadersWidth = 51;
+            dgvProductos.RowTemplate.Height = 35;
+            dgvProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvProductos.Size = new Size(1470, 350);
+            dgvProductos.TabIndex = 17;
+            dgvProductos.CellClick += dgvProductos_CellClick;
             // 
             // btnRegresar
             // 
-            this.btnRegresar.Location = new System.Drawing.Point(1249, 634);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(156, 66);
-            this.btnRegresar.TabIndex = 18;
-            this.btnRegresar.Text = "Regresar";
-            this.btnRegresar.UseVisualStyleBackColor = true;
-            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
+            btnRegresar.BackColor = Color.FromArgb(231, 76, 60);
+            btnRegresar.FlatAppearance.BorderSize = 0;
+            btnRegresar.FlatStyle = FlatStyle.Flat;
+            btnRegresar.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnRegresar.ForeColor = Color.White;
+            btnRegresar.Location = new Point(690, 15);
+            btnRegresar.Name = "btnRegresar";
+            btnRegresar.Size = new Size(180, 50);
+            btnRegresar.TabIndex = 18;
+            btnRegresar.Text = "REGRESAR";
+            btnRegresar.UseVisualStyleBackColor = false;
+            btnRegresar.Click += btnRegresar_Click;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(235, 110);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 16);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Código SKU:";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 10F);
+            label1.ForeColor = Color.FromArgb(52, 73, 94);
+            label1.Location = new Point(30, 25);
+            label1.Name = "label1";
+            label1.Size = new Size(105, 23);
+            label1.TabIndex = 19;
+            label1.Text = "Código SKU:";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(186, 169);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(138, 16);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "Nombre del Producto:";
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 10F);
+            label2.ForeColor = Color.FromArgb(52, 73, 94);
+            label2.Location = new Point(260, 25);
+            label2.Name = "label2";
+            label2.Size = new Size(180, 23);
+            label2.TabIndex = 20;
+            label2.Text = "Nombre del Producto:";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(240, 228);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 16);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "Descripción";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(299, 58);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(20, 16);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "ID";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 10F);
+            label3.ForeColor = Color.FromArgb(52, 73, 94);
+            label3.Location = new Point(30, 95);
+            label3.Name = "label3";
+            label3.Size = new Size(102, 23);
+            label3.TabIndex = 21;
+            label3.Text = "Descripción:";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(497, 291);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 16);
-            this.label5.TabIndex = 23;
-            this.label5.Text = "Costo unitario";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1104, 440);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(101, 16);
-            this.label6.TabIndex = 24;
-            this.label6.Text = "Precio de venta";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1104, 400);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 16);
-            this.label7.TabIndex = 25;
-            this.label7.Text = "Stock actual:";
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 10F);
+            label5.ForeColor = Color.FromArgb(52, 73, 94);
+            label5.Location = new Point(600, 25);
+            label5.Name = "label5";
+            label5.Size = new Size(122, 23);
+            label5.TabIndex = 23;
+            label5.Text = "Costo unitario:";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(497, 329);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(122, 16);
-            this.label8.TabIndex = 26;
-            this.label8.Text = "Unidad de medida:";
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 10F);
+            label8.ForeColor = Color.FromArgb(52, 73, 94);
+            label8.Location = new Point(30, 195);
+            label8.Name = "label8";
+            label8.Size = new Size(155, 23);
+            label8.TabIndex = 26;
+            label8.Text = "Unidad de medida:";
+            // 
+            // labelCateogria
+            // 
+            labelCateogria.AutoSize = true;
+            labelCateogria.Font = new Font("Segoe UI", 10F);
+            labelCateogria.ForeColor = Color.FromArgb(52, 73, 94);
+            labelCateogria.Location = new Point(350, 195);
+            labelCateogria.Name = "labelCateogria";
+            labelCateogria.Size = new Size(88, 23);
+            labelCateogria.TabIndex = 27;
+            labelCateogria.Text = "Categoría:";
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(497, 377);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(101, 16);
-            this.label9.TabIndex = 27;
-            this.label9.Text = "Descuento (%) :";
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 10F);
+            label9.ForeColor = Color.FromArgb(52, 73, 94);
+            label9.Location = new Point(30, 265);
+            label9.Name = "label9";
+            label9.Size = new Size(150, 23);
+            label9.TabIndex = 29;
+            label9.Text = "Tipo del Producto:";
+            // 
+            // checkBoxDescuento
+            // 
+            checkBoxDescuento.AutoSize = true;
+            checkBoxDescuento.Font = new Font("Segoe UI", 10F);
+            checkBoxDescuento.ForeColor = Color.FromArgb(52, 73, 94);
+            checkBoxDescuento.Location = new Point(600, 95);
+            checkBoxDescuento.Name = "checkBoxDescuento";
+            checkBoxDescuento.Size = new Size(159, 27);
+            checkBoxDescuento.TabIndex = 30;
+            checkBoxDescuento.Text = "Tiene Descuento";
+            checkBoxDescuento.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxTipoProducto
+            // 
+            comboBoxTipoProducto.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxTipoProducto.Font = new Font("Segoe UI", 10F);
+            comboBoxTipoProducto.FormattingEnabled = true;
+            comboBoxTipoProducto.Location = new Point(190, 262);
+            comboBoxTipoProducto.Name = "comboBoxTipoProducto";
+            comboBoxTipoProducto.Size = new Size(280, 31);
+            comboBoxTipoProducto.TabIndex = 31;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 10F);
+            label4.ForeColor = Color.FromArgb(52, 73, 94);
+            label4.Location = new Point(490, 265);
+            label4.Name = "label4";
+            label4.Size = new Size(92, 23);
+            label4.TabIndex = 32;
+            label4.Text = "Proveedor:";
+            // 
+            // comboBoxProveedor
+            // 
+            comboBoxProveedor.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxProveedor.Font = new Font("Segoe UI", 10F);
+            comboBoxProveedor.FormattingEnabled = true;
+            comboBoxProveedor.Location = new Point(590, 262);
+            comboBoxProveedor.Name = "comboBoxProveedor";
+            comboBoxProveedor.Size = new Size(260, 31);
+            comboBoxProveedor.TabIndex = 33;
+            // 
+            // panelHeader
+            // 
+            panelHeader.BackColor = Color.FromArgb(41, 128, 185);
+            panelHeader.Controls.Add(txtId);
+            panelHeader.Controls.Add(lblTitulo);
+            panelHeader.Dock = DockStyle.Top;
+            panelHeader.Location = new Point(0, 0);
+            panelHeader.Name = "panelHeader";
+            panelHeader.Size = new Size(1532, 80);
+            panelHeader.TabIndex = 34;
+            // 
+            // txtId
+            // 
+            txtId.Location = new Point(1400, 50);
+            txtId.Name = "txtId";
+            txtId.ReadOnly = true;
+            txtId.Size = new Size(100, 27);
+            txtId.TabIndex = 20;
+            txtId.Visible = false;
+            // 
+            // lblTitulo
+            // 
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
+            lblTitulo.ForeColor = Color.White;
+            lblTitulo.Location = new Point(30, 22);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(318, 41);
+            lblTitulo.TabIndex = 0;
+            lblTitulo.Text = "Gestión de Productos";
+            // 
+            // panelFormulario
+            // 
+            panelFormulario.BackColor = Color.White;
+            panelFormulario.BorderStyle = BorderStyle.FixedSingle;
+            panelFormulario.Controls.Add(label1);
+            panelFormulario.Controls.Add(txtSKU);
+            panelFormulario.Controls.Add(label2);
+            panelFormulario.Controls.Add(txtNombre);
+            panelFormulario.Controls.Add(label3);
+            panelFormulario.Controls.Add(txtDescripcion);
+            panelFormulario.Controls.Add(label5);
+            panelFormulario.Controls.Add(txtCostoUnitario);
+            panelFormulario.Controls.Add(label8);
+            panelFormulario.Controls.Add(cmbBodega);
+            panelFormulario.Controls.Add(labelCateogria);
+            panelFormulario.Controls.Add(cmbCategoria);
+            panelFormulario.Controls.Add(checkBoxDescuento);
+            panelFormulario.Controls.Add(label9);
+            panelFormulario.Controls.Add(comboBoxTipoProducto);
+            panelFormulario.Controls.Add(label4);
+            panelFormulario.Controls.Add(comboBoxProveedor);
+            panelFormulario.Location = new Point(30, 100);
+            panelFormulario.Name = "panelFormulario";
+            panelFormulario.Size = new Size(900, 320);
+            panelFormulario.TabIndex = 35;
+            // 
+            // panelImagen
+            // 
+            panelImagen.BackColor = Color.White;
+            panelImagen.BorderStyle = BorderStyle.FixedSingle;
+            panelImagen.Controls.Add(picImagen);
+            panelImagen.Controls.Add(btnCargarImagen);
+            panelImagen.Location = new Point(950, 100);
+            panelImagen.Name = "panelImagen";
+            panelImagen.Size = new Size(550, 320);
+            panelImagen.TabIndex = 36;
+            // 
+            // panelBotones
+            // 
+            panelBotones.BackColor = Color.White;
+            panelBotones.BorderStyle = BorderStyle.FixedSingle;
+            panelBotones.Controls.Add(btnGuardar);
+            panelBotones.Controls.Add(btnActualizar);
+            panelBotones.Controls.Add(btnLimpiar);
+            panelBotones.Controls.Add(btnRegresar);
+            panelBotones.Location = new Point(30, 440);
+            panelBotones.Name = "panelBotones";
+            panelBotones.Size = new Size(900, 80);
+            panelBotones.TabIndex = 37;
             // 
             // FrmProductos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1532, 726);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnRegresar);
-            this.Controls.Add(this.dgvProductos);
-            this.Controls.Add(this.btnLimpiar);
-            this.Controls.Add(this.btnActualizar);
-            this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.txtPrecioVenta);
-            this.Controls.Add(this.txtStock);
-            this.Controls.Add(this.btnCargarImagen);
-            this.Controls.Add(this.picImagen);
-            this.Controls.Add(this.txtDescuento);
-            this.Controls.Add(this.txtUnidadMedida);
-            this.Controls.Add(this.txtCostoUnitario);
-            this.Controls.Add(this.chkEsBien);
-            this.Controls.Add(this.cmbBodega);
-            this.Controls.Add(this.cmbCategoria);
-            this.Controls.Add(this.txtSKU);
-            this.Controls.Add(this.txtDescripcion);
-            this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.txtId);
-            this.Name = "FrmProductos";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.FrmProductos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.picImagen)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(236, 240, 241);
+            ClientSize = new Size(1532, 908);
+            Controls.Add(dgvProductos);
+            Controls.Add(panelBotones);
+            Controls.Add(panelImagen);
+            Controls.Add(panelFormulario);
+            Controls.Add(panelHeader);
+            Name = "FrmProductos";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "DevSolutions - Gestión de Productos";
+            Load += FrmProductos_Load;
+            ((System.ComponentModel.ISupportInitialize)picImagen).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
+            panelHeader.ResumeLayout(false);
+            panelHeader.PerformLayout();
+            panelFormulario.ResumeLayout(false);
+            panelFormulario.PerformLayout();
+            panelImagen.ResumeLayout(false);
+            panelBotones.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.TextBox txtSKU;
-        private System.Windows.Forms.ComboBox cmbCategoria;
-        private System.Windows.Forms.ComboBox cmbBodega;
-        private System.Windows.Forms.CheckBox chkEsBien;
-        private System.Windows.Forms.TextBox txtCostoUnitario;
-        private System.Windows.Forms.TextBox txtUnidadMedida;
-        private System.Windows.Forms.TextBox txtDescuento;
-        private System.Windows.Forms.PictureBox picImagen;
-        private System.Windows.Forms.Button btnCargarImagen;
-        private System.Windows.Forms.TextBox txtStock;
-        private System.Windows.Forms.TextBox txtPrecioVenta;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.DataGridView dgvProductos;
-        private System.Windows.Forms.Button btnRegresar;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private TextBox txtNombre;
+        private TextBox txtDescripcion;
+        private TextBox txtSKU;
+        private ComboBox cmbCategoria;
+        private ComboBox cmbBodega;
+        private TextBox txtCostoUnitario;
+        private PictureBox picImagen;
+        private Button btnCargarImagen;
+        private Button btnGuardar;
+        private Button btnActualizar;
+        private Button btnLimpiar;
+        private DataGridView dgvProductos;
+        private Button btnRegresar;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label5;
+        private Label label8;
+        private Label labelCateogria;
+        private Label label9;
+        private CheckBox checkBoxDescuento;
+        private ComboBox comboBoxTipoProducto;
+        private Label label4;
+        private ComboBox comboBoxProveedor;
+        private Panel panelHeader;
+        private Label lblTitulo;
+        private Panel panelFormulario;
+        private Panel panelImagen;
+        private Panel panelBotones;
+        private TextBox txtId;
     }
 }
