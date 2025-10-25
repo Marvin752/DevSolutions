@@ -114,18 +114,13 @@ namespace DevSolutions.Forms
 
                 _ => @"
                     SELECT 
-                        P.Producto_Id AS [ID],
                         P.Producto_SKU AS [SKU],
-                        P.Producto_Nombre AS [Producto],
+                        P.Producto_Nombre AS [Nombre del Producto],
+                        ISNULL(I.Inventario_Cantidad, 0) AS [Cantidad Disponible],
+                        P.Producto_CostoUnitario AS [Costo Unitario],
+                        ISNULL(I.Inventario_PrecioVenta, 0) AS [Precio de Venta],
                         C.Categoria_Nombre AS [Categoría],
-                        T.TipoProducto_Nombre AS [Tipo],
-                        U.UnidadMedida_Nombre AS [Unidad],
-                        PR.Proveedor_Nombre AS [Proveedor],
-                        ISNULL(I.Inventario_Cantidad, 0) AS [Stock],
-                        ISNULL(I.Inventario_PrecioVenta, 0) AS [Precio Venta],
-                        ISNULL(I.Inventario_Descuento, 0) AS [Desc %],
-                        B.Bodega_Nombre AS [Bodega],
-                        CONVERT(VARCHAR, I.Inventario_FechaActualizacion, 103) AS [Última Actualización]
+                        B.Bodega_Nombre AS [Bodega]
                     FROM INV.Tb_Productos P
                     INNER JOIN INV.Tb_Categorias C ON P.Categoria_Id = C.Categoria_Id
                     INNER JOIN INV.Tb_TiposProductos T ON P.TipoProducto_Id = T.TipoProducto_Id
@@ -175,26 +170,59 @@ namespace DevSolutions.Forms
                 iTextSharp.text.Font normalFont = new iTextSharp.text.Font(
                     iTextSharp.text.Font.FontFamily.HELVETICA, 8f, iTextSharp.text.Font.NORMAL);
 
-                // Encabezado
-                Paragraph header = new Paragraph($"DevSolutions - Sistema de Inventario", tituloFont)
-                {
-                    Alignment = Element.ALIGN_CENTER
-                };
-                doc.Add(header);
+                // Encabezado de la empresa
+                iTextSharp.text.Font empresaFont = new iTextSharp.text.Font(
+                    iTextSharp.text.Font.FontFamily.HELVETICA, 22f, iTextSharp.text.Font.BOLD, new BaseColor(41, 128, 185));
+                iTextSharp.text.Font sloganFont = new iTextSharp.text.Font(
+                    iTextSharp.text.Font.FontFamily.HELVETICA, 10f, iTextSharp.text.Font.ITALIC, BaseColor.GRAY);
 
-                Paragraph subheader = new Paragraph($"Reporte de {tipo}", subtituloFont)
+                Paragraph empresa = new Paragraph("DevSolutions", empresaFont)
                 {
                     Alignment = Element.ALIGN_CENTER,
-                    SpacingAfter = 5
+                    SpacingAfter = 3
                 };
-                doc.Add(subheader);
+                doc.Add(empresa);
 
-                Paragraph fecha = new Paragraph($"Fecha: {DateTime.Now:dd/MM/yyyy HH:mm} | Total registros: {datos.Rows.Count}", normalFont)
+                Paragraph slogan = new Paragraph("Sistema de Gestión de Inventario", sloganFont)
                 {
                     Alignment = Element.ALIGN_CENTER,
+                    SpacingAfter = 10
+                };
+                doc.Add(slogan);
+
+                // Línea separadora
+                PdfPTable lineaSeparadora = new PdfPTable(1)
+                {
+                    WidthPercentage = 80,
                     SpacingAfter = 15
                 };
-                doc.Add(fecha);
+                PdfPCell lineaCell = new PdfPCell()
+                {
+                    BackgroundColor = new BaseColor(41, 128, 185),
+                    FixedHeight = 2f,
+                    Border = iTextSharp.text.Rectangle.NO_BORDER
+                };
+                lineaSeparadora.AddCell(lineaCell);
+                doc.Add(lineaSeparadora);
+
+                // Título del reporte
+                Paragraph tituloReporte = new Paragraph($"Reporte de {tipo}", tituloFont)
+                {
+                    Alignment = Element.ALIGN_CENTER,
+                    SpacingAfter = 10
+                };
+                doc.Add(tituloReporte);
+
+                // Información del reporte
+                Paragraph infoReporte = new Paragraph(
+                    $"Fecha de generación: {DateTime.Now:dddd, dd 'de' MMMM 'de' yyyy - HH:mm} hrs\n" +
+                    $"Total de registros: {datos.Rows.Count}",
+                    normalFont)
+                {
+                    Alignment = Element.ALIGN_CENTER,
+                    SpacingAfter = 20
+                };
+                doc.Add(infoReporte);
 
                 // Crear tabla con el número correcto de columnas
                 PdfPTable table = new PdfPTable(datos.Columns.Count)
@@ -202,6 +230,13 @@ namespace DevSolutions.Forms
                     WidthPercentage = 100,
                     SpacingBefore = 10
                 };
+
+                // Ajustar ancho de columnas si es el reporte "Ambos"
+                if (tipo == "Ambos" && datos.Columns.Count == 7)
+                {
+                    // SKU (10%), Nombre (30%), Cantidad (12%), Costo (15%), Precio (15%), Categoría (10%), Bodega (8%)
+                    table.SetWidths(new float[] { 10f, 30f, 12f, 15f, 15f, 10f, 8f });
+                }
 
                 // Headers de columnas
                 foreach (DataColumn col in datos.Columns)
@@ -233,7 +268,13 @@ namespace DevSolutions.Forms
                              col.ColumnName.Contains("Venta")) &&
                             decimal.TryParse(valor, out decimal num))
                         {
-                            valor = $"Q {num:N2}";
+                            valor = num > 0 ? $"Q {num:N2}" : "-";
+                        }
+
+                        // Formatear cantidades
+                        if (col.ColumnName.Contains("Cantidad") && int.TryParse(valor, out int cantidad))
+                        {
+                            valor = cantidad.ToString("N0");
                         }
 
                         // Alineación según tipo de dato

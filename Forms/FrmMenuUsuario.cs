@@ -66,7 +66,7 @@ namespace DevSolutions.Forms
         }
 
         // ==========================================================
-        // 🔹 Botón: Ver Inventario (solo lectura)
+        // 🔹 Botón: Ver Inventario 
         // ==========================================================
         private void btnVerInventario_Click(object sender, EventArgs e)
         {
